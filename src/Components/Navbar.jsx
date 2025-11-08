@@ -33,12 +33,12 @@ const Navbar = () => {
             >
               Login
             </Link>
-            <a
-              href="#"
+            <Link
+              to={'/register'}
               className="px-4 py-2 rounded-md bg-green-600 text-white hover:bg-green-700 transition"
             >
               Register
-            </a>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}

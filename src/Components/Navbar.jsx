@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import logo from '../assets/imgi_469_cleaning-service-logo-icon-design-illustration_586739-5824-depositphotos-bgremover.png';
+import { Link } from "react-router";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -26,12 +27,12 @@ const Navbar = () => {
             <a href="#" className="text-gray-700 hover:text-green-600 transition">
               Issues
             </a>
-            <a
-              href="#"
+            <Link to={'/login'}
+              
               className="px-4 py-2 rounded-md bg-green-600 text-white hover:bg-green-700 transition"
             >
               Login
-            </a>
+            </Link>
             <a
               href="#"
               className="px-4 py-2 rounded-md bg-green-600 text-white hover:bg-green-700 transition"

@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router";
 import { FaUsers, FaCheckCircle, FaClock, FaHandsHelping } from "react-icons/fa";
 import { RiUserCommunityFill } from "react-icons/ri";
 
 const ExtraSections = ({ stats }) => {
+  const navigate = useNavigate();
   const { users = 125, resolved = 52, pending = 12 } = stats || {};
 
   const [countUsers, setCountUsers] = useState(0);
@@ -63,6 +65,34 @@ const ExtraSections = ({ stats }) => {
         </div>
       </div>
 
+      <div className="bg-green-600 text-white rounded-2xl p-12 text-center relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-full opacity-10">
+          <div className="flex flex-wrap justify-center items-center h-full">
+            <FaHandsHelping className="text-8xl mx-4" />
+            <FaCheckCircle className="text-8xl mx-4" />
+            <FaUsers className="text-8xl mx-4" />
+          </div>
+        </div>
+        
+        <div className="relative z-10">
+          <div className="flex justify-center mb-6">
+            <div className="bg-white/20 p-4 rounded-full">
+              <FaHandsHelping className="text-4xl" />
+            </div>
+          </div>
+          <h2 className="text-3xl font-bold mb-4">Join Our Clean Drive!</h2>
+          <p className="mb-6 text-lg max-w-2xl mx-auto">
+            Be a part of the change. Volunteer with us and make your community cleaner and greener.
+          </p>
+          <button 
+            onClick={() => navigate("/login")}
+            className="bg-white text-green-600 font-semibold py-3 px-8 rounded-xl hover:bg-gray-100 transition flex items-center justify-center gap-2 mx-auto"
+          >
+            <FaUsers className="text-lg" />
+            Join Now
+          </button>
+        </div>
+      </div>
 
     </div>
   );

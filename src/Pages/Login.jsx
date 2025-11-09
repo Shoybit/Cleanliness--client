@@ -24,6 +24,7 @@ const handleGoogleLogin = () => {
       toast.success("Logged in successfully!", {
         position: "top-center",
         autoClose: 2000,
+         onClose: () => navigate("/")
       });
       setTimeout(() => {
         navigate("/");
@@ -45,6 +46,7 @@ const handleEmailLogin = (e) => {
       toast.success("Logged in successfully!", {
         position: "top-center",
         autoClose: 2000,
+         onClose: () => navigate("/")
       });
       setTimeout(() => {
         navigate("/");

@@ -51,6 +51,7 @@ const Register = () => {
       toast.error("Please fix password requirements!", {
         position: "top-center",
         autoClose: 3000,
+        onClose: () => navigate("/")
       });
       return;
     }
@@ -62,6 +63,7 @@ const Register = () => {
       toast.success("Account created successfully!", {
         position: "top-center",
         autoClose: 2000,
+        onClose: () => navigate("/")
       });
       setTimeout(() => {
         navigate("/");
@@ -81,6 +83,7 @@ const Register = () => {
       toast.error(errorMessage, {
         position: "top-center",
         autoClose: 4000,
+        onClose: () => navigate("/")
       });
     } finally {
       setIsLoading(false);
@@ -94,6 +97,7 @@ const Register = () => {
       toast.success("Signed in with Google successfully!", {
         position: "top-center",
         autoClose: 2000,
+        onClose: () => navigate("/")
       });
       setTimeout(() => {
         navigate("/");
@@ -103,6 +107,7 @@ const Register = () => {
       toast.error("Failed to sign in with Google. Please try again.", {
         position: "top-center",
         autoClose: 3000,
+        onClose: () => navigate("/")
       });
     } finally {
       setIsLoading(false);

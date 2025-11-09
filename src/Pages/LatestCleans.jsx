@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router";
+import { Link, } from "react-router";
 import { FaMapMarkerAlt, FaCalendarAlt, FaEye, FaTrashAlt, FaRecycle, FaLeaf } from "react-icons/fa";
 
 const LatestCleans = () => {
   const [issues, setIssues] = useState([]);
-  const navigate = useNavigate();
 
   useEffect(() => {
     fetch("http://localhost:3000/letest-cleans")
@@ -58,7 +57,7 @@ const LatestCleans = () => {
                     className="h-48 w-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                 ) : (
-                  <div className="h-48 w-full bg-gradient-to-br from-green-400 to-blue-500 flex items-center justify-center">
+                  <div className="h-48 w-full bg-linear-to-br from-green-400 to-blue-500 flex items-center justify-center">
                     <FaRecycle className="w-16 h-16 text-white opacity-80" />
                   </div>
                 )}
@@ -111,12 +110,12 @@ const LatestCleans = () => {
          
 
                 <div className="mt-auto pt-4">
-                  <button
-                    onClick={() => navigate(`/issues/${issue.id || issue._id}`)}
-                    className="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 transform"
+                  <Link to={`issue-details/${issue._id}`}
+                    // onClick={() => navigate(`/issues/${issue.id || issue._id}`)}
+                    className=" btn w-full bg-linear-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 transform"
                   >
                     <span>View Details</span>
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>

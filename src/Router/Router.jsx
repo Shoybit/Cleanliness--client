@@ -6,6 +6,7 @@ import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import IssueDetails from "../Pages/IssueDetails";
 import PrivateRoute from "./PrivateRoute";
+import AllIssues from "../Pages/AllIssues";
 
 export const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ export const router = createBrowserRouter([
          {
         path: "/register",
         element: <Register></Register>
+      },
+         {
+        path: "/all-issues",
+        element: <AllIssues></AllIssues>
       },
         {
         path: "/issue-details/:id",

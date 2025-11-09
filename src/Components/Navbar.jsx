@@ -74,12 +74,14 @@ const Navbar = () => {
         <div className="max-w-[83.333%] mx-auto px-4 sm:px-6 lg:px-6">
           <div className="flex justify-between h-16 items-center">
 
-            <div className="shrink-0 flex items-center gap-2">
+              <Link to="/">
+              <div className="shrink-0 flex items-center gap-2">
               <img src={logo} alt="Cleanliness Logo" className="w-10 h-10 object-contain" />
-              <Link to="/" className="text-2xl font-bold text-green-600 cursor-pointer">
+              <span  className="text-2xl font-bold text-green-600 cursor-pointer">
                 Cleanliness
-              </Link>
+              </span>
             </div>
+            </Link>
 
             {user ? (
               <div className="hidden md:flex space-x-6 items-center">

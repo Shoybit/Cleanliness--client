@@ -4,13 +4,14 @@ import { AuthContext } from "../Context/AuthContext";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import logo from '../assets/imgi_469_cleaning-service-logo-icon-design-illustration_586739-5824-depositphotos-bgremover.png';
-import { Link, useNavigate } from "react-router";
+import { Link, useNavigate, useLocation } from "react-router";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [profileDropdown, setProfileDropdown] = useState(false);
   const { user, logOut } = useContext(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation(); 
   const dropdownRef = useRef(null);
 
   const handleLogout = async () => {
@@ -49,6 +50,11 @@ const Navbar = () => {
     };
   }, []);
 
+  // Check if current path is active
+  const isActive = (path) => {
+    return location.pathname === path;
+  };
+
   return (
     <>
       <ToastContainer
@@ -68,7 +74,7 @@ const Navbar = () => {
         <div className="max-w-[83.333%] mx-auto px-4 sm:px-6 lg:px-6">
           <div className="flex justify-between h-16 items-center">
 
-            <div className="flex-shrink-0 flex items-center gap-2">
+            <div className="shrink-0 flex items-center gap-2">
               <img src={logo} alt="Cleanliness Logo" className="w-10 h-10 object-contain" />
               <Link to="/" className="text-2xl font-bold text-green-600 cursor-pointer">
                 Cleanliness
@@ -77,19 +83,34 @@ const Navbar = () => {
 
             {user ? (
               <div className="hidden md:flex space-x-6 items-center">
-                <Link to="/" className="text-black hover:text-green-600 transition">
+                <Link 
+                  to="/" 
+                  className={`transition ${isActive("/") ? "text-green-600 font-semibold" : "text-black hover:text-green-600"}`}
+                >
                   Home
                 </Link>
-                <Link to="/all-issues" className="text-black hover:text-green-600 transition">
+                <Link 
+                  to="/all-issues" 
+                  className={`transition ${isActive("/all-issues") ? "text-green-600 font-semibold" : "text-black hover:text-green-600"}`}
+                >
                   All Issues
                 </Link>
-                <Link to="/add-issues" className="text-black hover:text-green-600 transition">
+                <Link 
+                  to="/add-issues" 
+                  className={`transition ${isActive("/add-issues") ? "text-green-600 font-semibold" : "text-black hover:text-green-600"}`}
+                >
                   Add Issues
                 </Link>
-                <Link to="/my-issues" className="text-black hover:text-green-600 transition">
+                <Link 
+                  to="/my-issues" 
+                  className={`transition ${isActive("/my-issues") ? "text-green-600 font-semibold" : "text-black hover:text-green-600"}`}
+                >
                   My Issues
                 </Link>
-                <Link to="/my-contribution" className="text-black hover:text-green-600 transition">
+                <Link 
+                  to="/my-contribution" 
+                  className={`transition ${isActive("/my-contribution") ? "text-green-600 font-semibold" : "text-black hover:text-green-600"}`}
+                >
                   My Contribution
                 </Link>
                 
@@ -129,10 +150,16 @@ const Navbar = () => {
               </div>
             ) : (
               <div className="hidden md:flex space-x-6 items-center">
-                <Link to="/" className="text-black hover:text-green-600 transition">
+                <Link 
+                  to="/" 
+                  className={`transition ${isActive("/") ? "text-green-600 font-semibold" : "text-black hover:text-green-600"}`}
+                >
                   Home
                 </Link>
-                <Link to="/all-issues" className="text-black hover:text-green-600 transition">
+                <Link 
+                  to="/all-issues" 
+                  className={`transition ${isActive("/all-issues") ? "text-green-600 font-semibold" : "text-black hover:text-green-600"}`}
+                >
                   Issues
                 </Link>
                 <Link to="/login" className="px-4 py-2 rounded-md bg-green-600 text-white hover:bg-green-700 transition">
@@ -160,19 +187,39 @@ const Navbar = () => {
             <div className="px-2 pt-2 pb-3 space-y-1">
               {user ? (
                 <>
-                  <Link to="/" className="block px-3 py-2 rounded hover:bg-green-50" onClick={() => setMenuOpen(false)}>
+                  <Link 
+                    to="/" 
+                    className={`block px-3 py-2 rounded transition ${isActive("/") ? "bg-green-50 text-green-600 font-semibold" : "hover:bg-green-50"}`} 
+                    onClick={() => setMenuOpen(false)}
+                  >
                     Home
                   </Link>
-                  <Link to="/all-issues" className="block px-3 py-2 rounded hover:bg-green-50" onClick={() => setMenuOpen(false)}>
+                  <Link 
+                    to="/all-issues" 
+                    className={`block px-3 py-2 rounded transition ${isActive("/all-issues") ? "bg-green-50 text-green-600 font-semibold" : "hover:bg-green-50"}`} 
+                    onClick={() => setMenuOpen(false)}
+                  >
                     All Issues
                   </Link>
-                  <Link to="/add-issues" className="block px-3 py-2 rounded hover:bg-green-50" onClick={() => setMenuOpen(false)}>
+                  <Link 
+                    to="/add-issues" 
+                    className={`block px-3 py-2 rounded transition ${isActive("/add-issues") ? "bg-green-50 text-green-600 font-semibold" : "hover:bg-green-50"}`} 
+                    onClick={() => setMenuOpen(false)}
+                  >
                     Add Issues
                   </Link>
-                  <Link to="/my-issues" className="block px-3 py-2 rounded hover:bg-green-50" onClick={() => setMenuOpen(false)}>
+                  <Link 
+                    to="/my-issues" 
+                    className={`block px-3 py-2 rounded transition ${isActive("/my-issues") ? "bg-green-50 text-green-600 font-semibold" : "hover:bg-green-50"}`} 
+                    onClick={() => setMenuOpen(false)}
+                  >
                     My Issues
                   </Link>
-                  <Link to="/my-contribution" className="block px-3 py-2 rounded hover:bg-green-50" onClick={() => setMenuOpen(false)}>
+                  <Link 
+                    to="/my-contribution" 
+                    className={`block px-3 py-2 rounded transition ${isActive("/my-contribution") ? "bg-green-50 text-green-600 font-semibold" : "hover:bg-green-50"}`} 
+                    onClick={() => setMenuOpen(false)}
+                  >
                     My Contribution
                   </Link>
                   <div className="border-t border-gray-200 pt-2">
@@ -189,10 +236,18 @@ const Navbar = () => {
                 </>
               ) : (
                 <>
-                  <Link to="/" className="block px-3 py-2 rounded hover:bg-green-50" onClick={() => setMenuOpen(false)}>
+                  <Link 
+                    to="/" 
+                    className={`block px-3 py-2 rounded transition ${isActive("/") ? "bg-green-50 text-green-600 font-semibold" : "hover:bg-green-50"}`} 
+                    onClick={() => setMenuOpen(false)}
+                  >
                     Home
                   </Link>
-                  <Link to="/all-issues" className="block px-3 py-2 rounded hover:bg-green-50" onClick={() => setMenuOpen(false)}>
+                  <Link 
+                    to="/all-issues" 
+                    className={`block px-3 py-2 rounded transition ${isActive("/all-issues") ? "bg-green-50 text-green-600 font-semibold" : "hover:bg-green-50"}`} 
+                    onClick={() => setMenuOpen(false)}
+                  >
                     Issues
                   </Link>
                   <Link to="/login" className="block px-3 py-2 rounded-md bg-green-600 text-white hover:bg-green-700 transition" onClick={() => setMenuOpen(false)}>

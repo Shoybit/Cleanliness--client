@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { AuthContext } from "../Context/AuthContext";
+import { FaRecycle } from "react-icons/fa";
 
 
 const AddIssue = () => {
@@ -69,6 +70,9 @@ setIsSubmitting(false);
 return (
 <div className="max-w-2xl mx-auto p-6 bg-linear-to-br from-white to-green-50 shadow-2xl rounded-3xl mt-8 mb-8 border border-green-100">
 <div className="text-center mb-8">
+<div className="inline-flex items-center justify-center w-16 h-16 bg-green-100 rounded-full mb-4">
+<FaRecycle className="text-3xl text-green-600" />
+</div>
 <h2 className="text-3xl font-bold bg-linear-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
 Report Cleanliness Issue
 </h2>

@@ -1,9 +1,21 @@
 import React, { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../Context/AuthContext";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { FaEdit } from "react-icons/fa";
 
 const MyIssues = () => {
   const { user } = useContext(AuthContext);
   const [issues, setIssues] = useState([]);
+  const [selectedIssue, setSelectedIssue] = useState(null);
+  const [formData, setFormData] = useState({
+    title: "",
+    category: "",
+    location: "",
+    amount: "",
+    description: "",
+    status: "ongoing",
+  });
 
   const fetchIssues = async () => {
     if (!user?.email) return;
@@ -12,7 +24,7 @@ const MyIssues = () => {
       const data = await res.json();
       setIssues(Array.isArray(data) ? data : []);
     } catch {
-      console.error("Failed to load issues");
+      toast.error("Failed to load your issues");
     }
   };
 
@@ -20,8 +32,38 @@ const MyIssues = () => {
     fetchIssues();
   }, [user]);
 
+  const openUpdateModal = (issue) => {
+    setSelectedIssue(issue);
+    setFormData({
+      title: issue.title,
+      category: issue.category,
+      location: issue.location,
+      amount: issue.amount,
+      description: issue.description,
+      status: issue.status,
+    });
+    document.getElementById("update_modal").showModal();
+  };
+
+  const handleUpdate = async () => {
+    if (!selectedIssue) return;
+    try {
+      await fetch(`http://localhost:3000/issues/${selectedIssue._id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...formData, userEmail: user.email }),
+      });
+      toast.success("Issue updated successfully!");
+      document.getElementById("update_modal").close();
+      fetchIssues();
+    } catch {
+      toast.error("Update failed");
+    }
+  };
+
   return (
     <div className="p-6 max-w-6xl mx-auto">
+      <ToastContainer />
       <h1 className="text-3xl font-bold text-center mb-6 text-green-700">
         My Issues
       </h1>
@@ -40,7 +82,7 @@ const MyIssues = () => {
           </thead>
           <tbody>
             {issues.length > 0 ? (
-              issues.map((issue,) => (
+              issues.map((issue) => (
                 <tr
                   key={issue._id}
                   className={`border-b hover:bg-green-50 transition`}
@@ -61,7 +103,13 @@ const MyIssues = () => {
                     {issue.status}
                   </td>
                   <td className="px-4 py-3 text-center space-x-3">
-                    Actions
+                    <button
+                      onClick={() => openUpdateModal(issue)}
+                      className="text-blue-600 hover:text-blue-800 transition"
+                      title="Edit Issue"
+                    >
+                      <FaEdit size={18} />
+                    </button>
                   </td>
                 </tr>
               ))
@@ -75,6 +123,47 @@ const MyIssues = () => {
           </tbody>
         </table>
       </div>
+
+      <dialog id="update_modal" className="modal">
+        <div className="modal-box">
+          <h2 className="text-2xl font-semibold mb-4 text-green-700">Update Issue</h2>
+          <div className="space-y-3">
+            {["title", "category", "location", "amount", "description"].map((field) => (
+              <input
+                key={field}
+                className="input input-bordered w-full"
+                placeholder={field.charAt(0).toUpperCase() + field.slice(1)}
+                value={formData[field]}
+                onChange={(e) =>
+                  setFormData({ ...formData, [field]: e.target.value })
+                }
+              />
+            ))}
+            <select
+              className="select select-bordered w-full"
+              value={formData.status}
+              onChange={(e) =>
+                setFormData({ ...formData, status: e.target.value })
+              }
+            >
+              <option value="ongoing">Ongoing</option>
+              <option value="ended">Ended</option>
+            </select>
+          </div>
+          <div className="modal-action">
+            <form method="dialog" className="space-x-2">
+              <button className="btn bg-gray-300 hover:bg-gray-400">Cancel</button>
+              <button
+                type="button"
+                className="btn bg-green-600 hover:bg-green-700 text-white"
+                onClick={handleUpdate}
+              >
+                Save
+              </button>
+            </form>
+          </div>
+        </div>
+      </dialog>
     </div>
   );
 };

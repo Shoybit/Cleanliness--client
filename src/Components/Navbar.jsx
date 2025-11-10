@@ -99,7 +99,7 @@ const Navbar = () => {
                 </Link>
                 <Link 
                   to="/addissue" 
-                  className={`transition ${isActive("/add-issues") ? "text-green-600 font-semibold" : "text-black hover:text-green-600"}`}
+                  className={`transition ${isActive("/addissue") ? "text-green-600 font-semibold" : "text-black hover:text-green-600"}`}
                 >
                   Add Issues
                 </Link>
@@ -204,8 +204,8 @@ const Navbar = () => {
                     All Issues
                   </Link>
                   <Link 
-                    to="/add-issues" 
-                    className={`block px-3 py-2 rounded transition ${isActive("/add-issues") ? "bg-green-50 text-green-600 font-semibold" : "hover:bg-green-50"}`} 
+                    to="/addissue" 
+                    className={`block px-3 py-2 rounded transition ${isActive("/addissue") ? "bg-green-50 text-green-600 font-semibold" : "hover:bg-green-50"}`} 
                     onClick={() => setMenuOpen(false)}
                   >
                     Add Issues

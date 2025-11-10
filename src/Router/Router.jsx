@@ -8,6 +8,7 @@ import IssueDetails from "../Pages/IssueDetails";
 import PrivateRoute from "./PrivateRoute";
 import AllIssues from "../Pages/AllIssues";
 import AddIssue from "../Pages/AddIssue";
+import MyIssues from "../Pages/MyIssues";
 
 export const router = createBrowserRouter([
   {
@@ -43,6 +44,14 @@ export const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <AddIssue></AddIssue>
+          </PrivateRoute>
+        ),
+      },
+        {
+        path: "/my-issues",
+        element: (
+          <PrivateRoute>
+            <MyIssues></MyIssues>
           </PrivateRoute>
         ),
       },

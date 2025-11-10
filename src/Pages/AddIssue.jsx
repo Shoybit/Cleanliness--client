@@ -7,6 +7,7 @@ const { user } = useContext(AuthContext);
 const [formData, setFormData] = useState({
 title: "",
 category: "",
+location: "",
 description: "",
 image: "",
 amount: "",
@@ -25,6 +26,7 @@ setIsSubmitting(true);
 const issueData = {
 title: formData.title,
 category: formData.category,
+location: formData.location,
 description: formData.description,
 image: formData.image,
 amount: formData.amount,
@@ -121,6 +123,19 @@ Garbage Accumulation
 </select>
 </div>
 
+<div className="relative">
+<div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+</div>
+<input
+type="text"
+name="location"
+placeholder="Location "
+value={formData.location}
+onChange={handleChange}
+className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
+required
+/>
+</div>
 
 <div className="relative">
 <div className="absolute top-3 left-3 pointer-events-none">

@@ -112,8 +112,15 @@ className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:outlin
 required
 >
 <option value="">Select Category</option>
+<option value="Garbage" className="flex items-center">
+Garbage Accumulation
+</option>
+<option value="Illegal Construction">Illegal Construction</option>
+<option value="Broken Public Property">Broken Public Property</option>
+<option value="Road Damage">Road Damage</option>
 </select>
 </div>
+
 
 <div className="relative">
 <div className="absolute top-3 left-3 pointer-events-none">

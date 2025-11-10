@@ -1,5 +1,7 @@
 import React, { useState, useContext } from "react";
 import { AuthContext } from "../Context/AuthContext";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { FaRecycle } from "react-icons/fa";
 
 
@@ -46,7 +48,7 @@ body: JSON.stringify(issueData),
 });
 
 if (res.ok) {
-alert.success("Issue reported successfully!");
+toast.success("Issue reported successfully!");
 setFormData({
 title: "",
 category: "",
@@ -56,11 +58,11 @@ image: "",
 amount: "",
 });
 } else {
-alert.error("Failed to submit issue. Please try again.");
+toast.error("Failed to submit issue. Please try again.");
 }
 } catch (err) {
 console.error(err);
-alert.error("Network error. Please check your connection.");
+toast.error("Network error. Please check your connection.");
 } finally {
 setIsSubmitting(false);
 }
@@ -202,7 +204,18 @@ className="w-full bg-linear-to-r from-green-600 to-emerald-600 text-white font-s
 </form>
 
 
-
+<ToastContainer
+position="top-center"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="light"
+/>
 </div>
 );
 };

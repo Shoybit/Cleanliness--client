@@ -98,7 +98,7 @@ const Navbar = () => {
                   All Issues
                 </Link>
                 <Link 
-                  to="/add-issues" 
+                  to="/addissue" 
                   className={`transition ${isActive("/add-issues") ? "text-green-600 font-semibold" : "text-black hover:text-green-600"}`}
                 >
                   Add Issues

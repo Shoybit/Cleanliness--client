@@ -2,7 +2,8 @@ import React, { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../Context/AuthContext";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { FaEdit } from "react-icons/fa";
+import { FaEdit, FaTrashAlt } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 const MyIssues = () => {
   const { user } = useContext(AuthContext);
@@ -61,6 +62,28 @@ const MyIssues = () => {
     }
   };
 
+  const handleDelete = async (issue) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this deletion!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#16a34a",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        try {
+          await fetch(`http://localhost:3000/issues/${issue._id}`, { method: "DELETE" });
+          setIssues(issues.filter((i) => i._id !== issue._id));
+          Swal.fire("Deleted!", "Your issue has been deleted.", "success");
+        } catch {
+          toast.error("Delete failed");
+        }
+      }
+    });
+  };
+
   return (
     <div className="p-6 max-w-6xl mx-auto">
       <ToastContainer />
@@ -109,6 +132,13 @@ const MyIssues = () => {
                       title="Edit Issue"
                     >
                       <FaEdit size={18} />
+                    </button>
+                    <button
+                      onClick={() => handleDelete(issue)}
+                      className="text-red-600 hover:text-red-800 transition"
+                      title="Delete Issue"
+                    >
+                      <FaTrashAlt size={18} />
                     </button>
                   </td>
                 </tr>

@@ -1,5 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../Context/AuthContext";
+import jsPDF from "jspdf";
+import autoTable from "jspdf-autotable";
 
 const MyContribution = () => {
   const { user } = useContext(AuthContext);
@@ -35,9 +37,33 @@ const MyContribution = () => {
     fetchContributions();
   }, [user]);
 
+  const downloadPDF = () => {
+    if (contributions.length === 0) return;
+
+    const doc = new jsPDF();
+    doc.text("My Contribution Report", 14, 20);
+
+    const tableColumn = ["Issue Title", "Category", "Paid Amount", "Date"];
+    const tableRows = contributions.map(c => [
+      c.title,
+      c.category,
+      `$${c.amount}`,
+      new Date(c.date).toLocaleDateString()
+    ]);
+
+    autoTable(doc, {
+      startY: 30,
+      head: [tableColumn],
+      body: tableRows,
+    });
+
+    doc.save(`contributions_${user.email}.pdf`);
+  };
+
   return (
     <div className="p-6 max-w-4xl mx-auto">
       <h1 className="text-3xl font-bold text-gray-900">My Contributions</h1>
+      <button onClick={downloadPDF}>Download Report</button>
       <p>Total Contributions: {contributions.length}</p>
     </div>
   );

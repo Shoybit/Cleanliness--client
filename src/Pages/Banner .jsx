@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation, EffectFade } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css/effect-fade";
+import { Typewriter } from "react-simple-typewriter";
 
 const Banner = () => {
   const slides = [
@@ -25,6 +26,8 @@ const Banner = () => {
     },
   ];
 
+  const [activeIndex, setActiveIndex] = useState(0);
+
   return (
     <div className="w-full h-[70vh] relative">
       <Swiper
@@ -34,12 +37,13 @@ const Banner = () => {
           disableOnInteraction: false,
           reverseDirection: false,
         }}
-        speed={1000} 
+        speed={1000}
         pagination={{ clickable: true }}
         navigation={true}
         effect="fade"
-        fadeEffect={{ crossFade: true }} 
+        fadeEffect={{ crossFade: true }}
         loop
+        onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
         className="w-full h-full"
       >
         {slides.map((slide, index) => (
@@ -51,12 +55,20 @@ const Banner = () => {
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-black/50 flex flex-col justify-center items-center text-center text-white px-6 transition-opacity duration-700 opacity-100">
-                <h2 className="text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg">
-                  {slide.title}
-                </h2>
-                <p className="text-lg md:text-xl max-w-2xl mb-6">
-                  {slide.desc}
-                </p>
+                {activeIndex === index && (
+                  <h2 className="text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg">
+                    <Typewriter
+                      words={[slide.title]}
+                      loop={1}
+                      cursor
+                      cursorStyle="|"
+                      typeSpeed={70}
+                      deleteSpeed={50}
+                      delaySpeed={2000}
+                    />
+                  </h2>
+                )}
+                <p className="text-lg md:text-xl max-w-2xl mb-6">{slide.desc}</p>
               </div>
             </div>
           </SwiperSlide>

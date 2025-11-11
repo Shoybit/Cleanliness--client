@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../Context/AuthContext";
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
+import { FaExclamationTriangle, FaCalendarAlt, FaCheck, FaDownload } from "react-icons/fa";
 
 const MyContribution = () => {
   const { user } = useContext(AuthContext);
@@ -62,18 +63,70 @@ const MyContribution = () => {
 
   return (
     <div className="p-6 max-w-4xl mx-auto">
-      <h1 className="text-3xl font-bold text-gray-900">My Contributions</h1>
-      <button onClick={downloadPDF}>Download Report</button>
-      <div className="grid gap-4">
-        {contributions.map(c => (
-          <div className="bg-white shadow-md rounded p-4">
-            <h3 className="text-lg font-semibold">{c.title}</h3>
-            <p className="text-gray-600">Category: {c.category}</p>
-            <p className="text-gray-600">Amount: ${c.amount}</p>
-            <span className="text-sm text-gray-500">{new Date(c.date).toLocaleDateString()}</span>
-          </div>
-        ))}
-      </div>
+      <h1 className="text-3xl font-bold text-gray-900 mb-8">
+        My Contributions
+      </h1>
+
+      {contributions.length > 0 && (
+        <div className="mb-8">
+          <button
+            onClick={downloadPDF}
+            className="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-medium rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 w-full lg:w-auto justify-center"
+          >
+            <FaDownload className="w-5 h-5" />
+            Download Report
+          </button>
+        </div>
+      )}
+
+      {contributions.length === 0 ? (
+        <div className="text-center py-16 bg-gray-50 rounded-2xl border-2 border-dashed border-gray-300">
+          <FaExclamationTriangle className="w-16 h-16 text-gray-400 mx-auto mb-4" />
+          <h3 className="text-xl font-semibold text-gray-700 mb-2">No contributions yet</h3>
+          <p className="text-gray-500 max-w-md mx-auto">
+            You haven't made any contributions yet. Start supporting causes you care about!
+          </p>
+        </div>
+      ) : (
+        <div className="grid gap-4 mb-8">
+          {contributions.map(c => (
+            <div key={c._id} className="bg-white rounded-xl shadow-sm border border-gray-200 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 p-6">
+              <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
+                <div className="flex-1">
+                  <div className="flex items-start justify-between mb-3">
+                    <h3 className="text-lg font-semibold text-gray-900 line-clamp-2 pr-4">
+                      {c.title}
+                    </h3>
+                    <span className="text-2xl font-bold text-green-600 whitespace-nowrap">
+                      ${c.amount}
+                    </span>
+                  </div>
+
+                  <div className="flex flex-wrap items-center gap-3 mb-4">
+                    <span className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium border ${(c.category)}`}>
+                      {c.category}
+                    </span>
+                    <span className="inline-flex items-center text-sm text-gray-500 bg-gray-50 px-3 py-1 rounded-full">
+                      <FaCalendarAlt className="w-4 h-4 mr-1" />
+                      {new Date(c.date).toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'short',
+                        day: 'numeric'
+                      })}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="flex items-center justify-end lg:justify-start">
+                  <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-50 text-green-700 border border-green-200">
+                    Contribution Completed
+                  </span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

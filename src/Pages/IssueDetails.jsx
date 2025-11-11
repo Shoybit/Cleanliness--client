@@ -3,12 +3,14 @@ import { useParams } from "react-router";
 import { AuthContext } from "../Context/AuthContext";
 import { toast, ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import Loader from "../Components/Loader";
 
 const IssueDetails = () => {
   const { id } = useParams();
   const { user } = useContext(AuthContext);
   const [issue, setIssue] = useState(null);
   const [contributors, setContributors] = useState([]);
+    const [loading, setLoading] = useState(true);
   const [formData, setFormData] = useState({
     name: user?.displayName || "",
     email: user?.email || "",
@@ -19,6 +21,13 @@ const IssueDetails = () => {
   });
     useEffect(() => {
     document.title = "IssueDetails | Cleanliness ";
+  }, []);
+
+    useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+    return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {
@@ -89,6 +98,11 @@ const contributionData = {
   };
 
   const totalCollected = contributors.reduce((sum, c) => sum + parseFloat(c.amount || 0), 0);
+
+    if (loading) {
+    return <Loader></Loader>; 
+  }
+
 
   if (!issue) return <p className="text-center mt-20">Loading...</p>;
 

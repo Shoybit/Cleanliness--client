@@ -3,10 +3,18 @@ import { AuthContext } from "../Context/AuthContext";
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
 import { FaExclamationTriangle, FaCalendarAlt, FaCheck, FaDownload } from "react-icons/fa";
+import Loader from "../Components/Loader";
 
 const MyContribution = () => {
   const { user } = useContext(AuthContext);
   const [contributions, setContributions] = useState([]);
+    const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, []);
 
   const fetchContributions = async () => {
     if (!user?.email) return;
@@ -64,6 +72,9 @@ const MyContribution = () => {
     doc.save(`contributions_${user.email}.pdf`);
   };
 
+    if (loading) {
+    return <Loader></Loader>; 
+  }
   return (
     <div className="p-6 max-w-10/12 mx-auto px-4">
       <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-8">

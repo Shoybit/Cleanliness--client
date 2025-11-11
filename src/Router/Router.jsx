@@ -10,6 +10,7 @@ import AllIssues from "../Pages/AllIssues";
 import AddIssue from "../Pages/AddIssue";
 import MyIssues from "../Pages/MyIssues";
 import MyContribution from "../Pages/MyContribution";
+import Error from "../Components/Error";
 
 export const router = createBrowserRouter([
   {
@@ -63,6 +64,10 @@ export const router = createBrowserRouter([
             <MyIssues></MyIssues>
           </PrivateRoute>
         ),
+      },
+        {
+        path: "/*",
+        element: <Error></Error>
       },
     ]
   },

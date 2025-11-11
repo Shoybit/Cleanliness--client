@@ -4,6 +4,7 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FaEdit, FaTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
+import Loader from "../Components/Loader";
 
 const MyIssues = () => {
   const { user } = useContext(AuthContext);
@@ -17,6 +18,16 @@ const MyIssues = () => {
     description: "",
     status: "ongoing",
   });
+
+  const [loading, setLoading] = useState(true);
+
+
+    useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, []);
 
   const fetchIssues = async () => {
     if (!user?.email) return;
@@ -87,6 +98,10 @@ const MyIssues = () => {
       }
     });
   };
+
+    if (loading) {
+    return <Loader></Loader> 
+  }
 
   return (
     <div className="p-6 max-w-10/12 mx-auto px-4">

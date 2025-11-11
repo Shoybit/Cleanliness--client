@@ -4,11 +4,20 @@ import {
   FaMapMarkerAlt, FaCalendarAlt, FaEye, FaTrashAlt, FaRecycle, 
   FaClipboardList, FaDollarSign, FaWrench 
 } from "react-icons/fa";
+import Loader from "../Components/Loader";
 
 const AllIssues = () => {
   const [issues, setIssues] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedStatus, setSelectedStatus] = useState("");
+  const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     fetch("http://localhost:3000/all-api")
@@ -44,9 +53,14 @@ const AllIssues = () => {
     }
   };
 
+  
       useEffect(() => {
       document.title = "AllIssues | Cleanliness ";
     }, []);
+
+      if (loading) {
+    return <Loader></Loader>; 
+  }
 
   return (
     <div className="max-w-10/12 mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -166,7 +180,7 @@ const AllIssues = () => {
                   <div className="mt-auto pt-4">
                     <Link
                       to={`/issue-details/${issue._id}`}
-                      className="btn w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 border-none"
+                      className="btn w-full h-[45px] bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 border-none"
                     >
                       See Details
                     </Link>

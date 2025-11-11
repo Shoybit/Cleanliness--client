@@ -28,17 +28,20 @@ const LatestCleans = () => {
   return (
     <div className="max-w-10/12 mx-auto px-4 sm:px-6 lg:px-8 py-12">
 
-      <div className="text-center mb-12">
-        <div className="flex items-center justify-center gap-3 mb-4">
-          <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-            <FaLeaf className="w-6 h-6 text-green-600" />
-          </div>
-          <h1 className="text-4xl font-bold text-gray-900">Latest Cleanup Activities</h1>
-        </div>
-        <p className="text-[16px] text-gray-600 max-w-3xl mx-auto">
-          Discover recent community efforts and ongoing cleanup initiatives in your area
-        </p>
-      </div>
+<div className="text-center mb-12">
+  <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-4">
+    <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+      <FaLeaf className="w-6 h-6 text-green-600" />
+    </div>
+    <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mt-2 sm:mt-0">
+      Latest Cleanup Activities
+    </h1>
+  </div>
+  <p className="text-[16px] text-gray-600 max-w-3xl mx-auto">
+    Discover recent community efforts and ongoing cleanup initiatives in your area
+  </p>
+</div>
+
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {issues.map((issue) => {
@@ -112,7 +115,7 @@ const LatestCleans = () => {
                 <div className="mt-auto pt-4">
                   <Link to={`issue-details/${issue._id}`}
                     // onClick={() => navigate(`/issues/${issue.id || issue._id}`)}
-                    className=" btn w-full bg-linear-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 transform"
+                    className=" btn w-full h-[45px] bg-linear-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 transform"
                   >
                     <span>View Details</span>
                   </Link>

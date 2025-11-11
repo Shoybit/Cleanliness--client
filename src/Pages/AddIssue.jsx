@@ -3,6 +3,7 @@ import { AuthContext } from "../Context/AuthContext";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FaRecycle } from "react-icons/fa";
+import Loader from "../Components/Loader";
 
 
 const AddIssue = () => {
@@ -16,6 +17,14 @@ image: "",
 amount: "",
 });
 const [isSubmitting, setIsSubmitting] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, []);
 
 const handleChange = (e) => {
 const { name, value } = e.target;
@@ -70,7 +79,10 @@ setIsSubmitting(false);
     useEffect(() => {
     document.title = "AddIssue | Cleanliness ";
   }, []);
-
+ 
+  if (loading) {
+    return <Loader></Loader>; 
+  }
 return (
 <div className="max-w-2xl mx-auto p-6 bg-linear-to-br from-white to-green-50 shadow-2xl rounded-3xl mt-8 mb-8 border border-green-100">
 <div className="text-center mb-8">

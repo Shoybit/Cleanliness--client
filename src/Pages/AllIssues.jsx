@@ -80,9 +80,8 @@ const AllIssues = () => {
           onChange={(e) => setSelectedStatus(e.target.value)}
         >
           <option value="">All Status</option>
-          <option value="pending">Pending</option>
+          <option value="Ended">Ended</option>
           <option value="ongoing">Ongoing</option>
-          <option value="completed">Completed</option>
         </select>
       </div>
 

@@ -64,7 +64,16 @@ const MyContribution = () => {
     <div className="p-6 max-w-4xl mx-auto">
       <h1 className="text-3xl font-bold text-gray-900">My Contributions</h1>
       <button onClick={downloadPDF}>Download Report</button>
-      <p>Total Contributions: {contributions.length}</p>
+      <div className="grid gap-4">
+        {contributions.map(c => (
+          <div className="bg-white shadow-md rounded p-4">
+            <h3 className="text-lg font-semibold">{c.title}</h3>
+            <p className="text-gray-600">Category: {c.category}</p>
+            <p className="text-gray-600">Amount: ${c.amount}</p>
+            <span className="text-sm text-gray-500">{new Date(c.date).toLocaleDateString()}</span>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

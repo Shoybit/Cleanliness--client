@@ -63,21 +63,28 @@ const MyContribution = () => {
 
   return (
     <div className="p-6 max-w-4xl mx-auto">
-      <h1 className="text-3xl font-bold text-gray-900 mb-8">
-        My Contributions
-      </h1>
-
-      {contributions.length > 0 && (
-        <div className="mb-8">
-          <button
-            onClick={downloadPDF}
-            className="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-medium rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 w-full lg:w-auto justify-center"
-          >
-            <FaDownload className="w-5 h-5" />
-            Download Report
-          </button>
+      <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-8">
+        <div className="text-center lg:text-left mb-4 lg:mb-0">
+          <h1 className="text-3xl font-bold text-gray-900">
+            My Contributions
+          </h1>
+          <p className="text-gray-600 mt-2">
+            Total Contributions: {contributions.length}
+          </p>
         </div>
-      )}
+        
+        {contributions.length > 0 && (
+          <div className="flex justify-center lg:justify-end">
+            <button
+              onClick={downloadPDF}
+              className="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-medium rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 w-full lg:w-auto justify-center"
+            >
+              <FaDownload className="w-5 h-5" />
+              Download Report
+            </button>
+          </div>
+        )}
+      </div>
 
       {contributions.length === 0 ? (
         <div className="text-center py-16 bg-gray-50 rounded-2xl border-2 border-dashed border-gray-300">

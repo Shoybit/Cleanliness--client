@@ -17,7 +17,9 @@ const IssueDetails = () => {
     amount: "",
     additionalInfo: "",
   });
-
+    useEffect(() => {
+    document.title = "IssueDetails | Cleanliness ";
+  }, []);
 
   useEffect(() => {
     fetch(`http://localhost:3000/letest-cleans/${id}`)
@@ -91,7 +93,7 @@ const contributionData = {
   if (!issue) return <p className="text-center mt-20">Loading...</p>;
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-12">
+    <div className="max-w-10/12 mx-auto px-4 py-12">
       <ToastContainer />
 
 

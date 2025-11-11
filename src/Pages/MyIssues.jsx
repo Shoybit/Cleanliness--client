@@ -28,6 +28,10 @@ const MyIssues = () => {
       toast.error("Failed to load your issues");
     }
   };
+      useEffect(() => {
+    document.title = "MyIssues | Cleanliness ";
+  }, []);
+
 
   useEffect(() => {
     fetchIssues();
@@ -85,7 +89,7 @@ const MyIssues = () => {
   };
 
   return (
-    <div className="p-6 max-w-6xl mx-auto">
+    <div className="p-6 max-w-10/12 mx-auto px-4">
       <ToastContainer />
       <h1 className="text-3xl font-bold text-center mb-6 text-green-700">
         My Issues

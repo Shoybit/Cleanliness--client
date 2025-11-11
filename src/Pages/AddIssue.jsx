@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { AuthContext } from "../Context/AuthContext";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -67,7 +67,9 @@ toast.error("Network error. Please check your connection.");
 setIsSubmitting(false);
 }
 };
-
+    useEffect(() => {
+    document.title = "AddIssue | Cleanliness ";
+  }, []);
 
 return (
 <div className="max-w-2xl mx-auto p-6 bg-linear-to-br from-white to-green-50 shadow-2xl rounded-3xl mt-8 mb-8 border border-green-100">
@@ -217,6 +219,7 @@ pauseOnHover
 theme="light"
 />
 </div>
+
 );
 };
 

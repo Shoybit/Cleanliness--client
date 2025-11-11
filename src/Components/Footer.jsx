@@ -5,7 +5,7 @@ import logo from '../assets/imgi_469_cleaning-service-logo-icon-design-illustrat
 const Footer = () => {
   return (
     <footer className="bg-[#016630] text-white py-12">
-      <div className="container mx-auto px-4">
+      <div className="container max-w-10/12 mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           
           <div className="md:col-span-2">

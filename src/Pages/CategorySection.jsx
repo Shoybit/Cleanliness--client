@@ -26,7 +26,7 @@ const categories = [
 
 const CategorySection = () => {
   return (
-    <div className="max-w-7xl mx-auto px-4 py-12">
+    <div className="max-w-10/12 mx-auto px-4 py-12">
 
       <div className="text-center mb-10 flex flex-col items-center">
         <h2 className="text-3xl md:text-4xl font-bold text-gray-800 flex items-center gap-2">

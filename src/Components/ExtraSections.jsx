@@ -23,7 +23,7 @@ const ExtraSections = ({ stats }) => {
   }, [users, resolved, pending]);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-12 space-y-16">
+    <div className="max-w-10/12 mx-auto px-4 py-12 space-y-16">
 
 <div className="bg-white rounded-2xl shadow-lg p-8 text-center">
   <div className="flex justify-center mb-4">

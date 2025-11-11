@@ -33,6 +33,9 @@ const MyContribution = () => {
       console.error("Error fetching contributions:", err);
     }
   };
+      useEffect(() => {
+    document.title = "MyContribution | Cleanliness ";
+  }, []);
 
   useEffect(() => {
     fetchContributions();
@@ -62,7 +65,7 @@ const MyContribution = () => {
   };
 
   return (
-    <div className="p-6 max-w-4xl mx-auto">
+    <div className="p-6 max-w-10/12 mx-auto px-4">
       <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-8">
         <div className="text-center lg:text-left mb-4 lg:mb-0">
           <h1 className="text-3xl font-bold text-gray-900">

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router";
 import { 
-  FaMapMarkerAlt, FaCalendarAlt, FaEye, FaTrashAlt, FaRecycle, 
-  FaClipboardList, FaDollarSign, FaWrench 
+  FaMapMarkerAlt, FaCalendarAlt, FaClipboardList, FaDollarSign, FaRecycle, 
+  FaTrashAlt, FaWrench, FaSearch
 } from "react-icons/fa";
 import Loader from "../Components/Loader";
 
@@ -10,12 +10,11 @@ const AllIssues = () => {
   const [issues, setIssues] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedStatus, setSelectedStatus] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
   const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 1000);
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 1000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -35,7 +34,12 @@ const AllIssues = () => {
       selectedStatus === "" ||
       issue.status?.toLowerCase() === selectedStatus.toLowerCase();
 
-    return categoryMatch && statusMatch;
+    const searchMatch =
+      searchQuery === "" ||
+      issue.title?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      issue.location?.toLowerCase().includes(searchQuery.toLowerCase());
+
+    return categoryMatch && statusMatch && searchMatch;
   });
 
   const getCategoryInformation = (category) => {
@@ -53,14 +57,11 @@ const AllIssues = () => {
     }
   };
 
-  
-      useEffect(() => {
-      document.title = "AllIssues | Cleanliness ";
-    }, []);
+  useEffect(() => {
+    document.title = "AllIssues | Cleanliness";
+  }, []);
 
-      if (loading) {
-    return <Loader></Loader>; 
-  }
+  if (loading) return <Loader />;
 
   return (
     <div className="max-w-10/12 mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -73,11 +74,26 @@ const AllIssues = () => {
           <h1 className="text-4xl font-bold text-gray-900">All Issues</h1>
         </div>
         <p className="text-gray-600 max-w-2xl mx-auto">
-          Browse and filter environmental issues by category and status.
+          Browse and filter environmental issues by category, status, or search by title/location.
         </p>
       </div>
 
-      <div className="flex flex-col md:flex-row gap-4 mb-10 justify-center">
+      <div className="flex justify-center mb-6">
+        <div className="relative w-full max-w-2xl">
+          <div className="relative">
+            <FaSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+            <input
+              type="text"
+              placeholder="Search by title or location..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full pl-12 pr-4 py-4 border border-gray-300 rounded-2xl focus:ring-3 focus:ring-green-500 focus:border-green-500 shadow-sm transition-all duration-300 text-lg bg-white hover:shadow-md"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div className="flex flex-col md:flex-row gap-4 mb-10 justify-center items-center">
 
         <select
           className="border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-green-500"
@@ -91,7 +107,6 @@ const AllIssues = () => {
           <option value="Illegal Construction">Illegal Construction</option>
         </select>
 
-
         <select
           className="border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-green-500"
           value={selectedStatus}
@@ -99,10 +114,10 @@ const AllIssues = () => {
         >
           <option value="">All Status</option>
           <option value="Ended">Ended</option>
-          <option value="ongoing">Ongoing</option>
+          <option value="Ongoing">Ongoing</option>
         </select>
-      </div>
 
+      </div>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {filteredIssues.length > 0 ? (

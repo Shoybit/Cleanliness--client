@@ -6,7 +6,7 @@ const LatestCleans = () => {
   const [issues, setIssues] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/letest-cleans")
+    fetch("https://cleanliness-server.vercel.app/letest-cleans")
       .then((res) => res.json())
       .then((data) => setIssues(data))
       .catch((err) => console.error(err));

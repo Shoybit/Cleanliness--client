@@ -48,7 +48,7 @@ email: user?.email,
 };
 
 try {
-const res = await fetch("http://localhost:3000/addissue", {
+const res = await fetch("https://cleanliness-server.vercel.app/addissue", {
 method: "POST",
 headers: {
 "Content-Type": "application/json",

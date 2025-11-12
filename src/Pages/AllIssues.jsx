@@ -19,7 +19,7 @@ const AllIssues = () => {
   }, []);
 
   useEffect(() => {
-    fetch("http://localhost:3000/all-api")
+    fetch("https://cleanliness-server.vercel.app/all-api")
       .then((res) => res.json())
       .then((data) => setIssues(data))
       .catch((err) => console.error(err));

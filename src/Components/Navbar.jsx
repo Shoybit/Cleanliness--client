@@ -121,11 +121,11 @@ const Navbar = () => {
             <div className="px-4 pt-2 pb-3 space-y-1">
               {user ? (
                 <>
-                  <Link to="/" className="block px-3 py-2 rounded hover:bg-green-50" onClick={() => setMenuOpen(false)}>Home</Link>
-                  <Link to="/all-issues" className="block px-3 py-2 rounded hover:bg-green-50" onClick={() => setMenuOpen(false)}>All Issues</Link>
-                  <Link to="/addissue" className="block px-3 py-2 rounded hover:bg-green-50" onClick={() => setMenuOpen(false)}>Add Issues</Link>
-                  <Link to="/my-issues" className="block px-3 py-2 rounded hover:bg-green-50" onClick={() => setMenuOpen(false)}>My Issues</Link>
-                  <Link to="/my-contribution" className="block px-3 py-2 rounded hover:bg-green-50" onClick={() => setMenuOpen(false)}>My Contribution</Link>
+                  <Link to="/" className="block px-3 py-2 rounded hover:bg-green-50 dark:text-black" onClick={() => setMenuOpen(false)}>Home</Link>
+                  <Link to="/all-issues" className="block px-3 py-2 rounded hover:bg-green-50 dark:text-black" onClick={() => setMenuOpen(false)}>All Issues</Link>
+                  <Link to="/addissue" className="block px-3 py-2 rounded hover:bg-green-50 dark:text-black" onClick={() => setMenuOpen(false)}>Add Issues</Link>
+                  <Link to="/my-issues" className="block px-3 py-2 rounded hover:bg-green-50 dark:text-black" onClick={() => setMenuOpen(false)}>My Issues</Link>
+                  <Link to="/my-contribution" className="block px-3 py-2 rounded hover:bg-green-50 dark:text-black" onClick={() => setMenuOpen(false)}>My Contribution</Link>
                   <div className="border-t border-gray-200 pt-2">
                     <p className="text-black font-medium px-3 py-2">{user?.displayName || 'User'}</p>
                     <button onClick={handleLogout} className="block w-full text-left px-3 py-2 text-red-600 hover:bg-red-50 rounded">Logout</button>
@@ -133,8 +133,8 @@ const Navbar = () => {
                 </>
               ) : (
                 <>
-                  <Link to="/" className="block px-3 py-2 rounded hover:bg-green-50" onClick={() => setMenuOpen(false)}>Home</Link>
-                  <Link to="/all-issues" className="block px-3 py-2 rounded hover:bg-green-50" onClick={() => setMenuOpen(false)}>Issues</Link>
+                  <Link to="/" className="block px-3 py-2 rounded hover:bg-green-50 dark:text-black" onClick={() => setMenuOpen(false)}>Home</Link>
+                  <Link to="/all-issues" className="block px-3 py-2 rounded hover:bg-green-50 dark:text-black" onClick={() => setMenuOpen(false)}>Issues</Link>
                   <Link to="/login" className="block px-3 py-2 rounded bg-green-600 text-white hover:bg-green-700" onClick={() => setMenuOpen(false)}>Login</Link>
                   <Link to="/register" className="block px-3 py-2 rounded bg-green-600 text-white hover:bg-green-700" onClick={() => setMenuOpen(false)}>Register</Link>
                 </>

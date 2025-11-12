@@ -31,14 +31,14 @@ const IssueDetails = () => {
   }, []);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/letest-cleans/${id}`)
+    fetch(`https://cleanliness-server.vercel.app/letest-cleans/${id}`)
       .then(res => res.json())
       .then(data => setIssue(data))
       .catch(err => console.error(err));
   }, [id]);
 
   const fetchContributors = () => {
-    fetch(`http://localhost:3000/contributions/${id}`)
+    fetch(`https://cleanliness-server.vercel.app/contributions/${id}`)
       .then(res => res.json())
       .then(data => setContributors(data))
       .catch(err => console.error(err));
@@ -69,7 +69,7 @@ const contributionData = {
 
 
     try {
-      const res = await fetch("http://localhost:3000/contributions", {
+      const res = await fetch("https://cleanliness-server.vercel.app/contributions", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(contributionData),

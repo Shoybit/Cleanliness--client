@@ -20,8 +20,8 @@ const MyContribution = () => {
     if (!user?.email) return;
     try {
       const [conRes, issueRes] = await Promise.all([
-        fetch(`http://localhost:3000/contributions?email=${user.email}`),
-        fetch(`http://localhost:3000/all-api`)
+        fetch(`https://cleanliness-server.vercel.app/contributions?email=${user.email}`),
+        fetch(`https://cleanliness-server.vercel.app/all-api`)
       ]);
 
       const contributions = await conRes.json();

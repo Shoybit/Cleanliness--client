@@ -32,7 +32,7 @@ const MyIssues = () => {
   const fetchIssues = async () => {
     if (!user?.email) return;
     try {
-      const res = await fetch(`http://localhost:3000/my-issues?userEmail=${user.email}`);
+      const res = await fetch(`https://cleanliness-server.vercel.app/my-issues?userEmail=${user.email}`);
       const data = await res.json();
       setIssues(Array.isArray(data) ? data : []);
     } catch {
@@ -64,7 +64,7 @@ const MyIssues = () => {
   const handleUpdate = async () => {
     if (!selectedIssue) return;
     try {
-      await fetch(`http://localhost:3000/issues/${selectedIssue._id}`, {
+      await fetch(`https://cleanliness-server.vercel.app/issues/${selectedIssue._id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ...formData, userEmail: user.email }),
@@ -89,7 +89,7 @@ const MyIssues = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          await fetch(`http://localhost:3000/issues/${issue._id}`, { method: "DELETE" });
+          await fetch(`https://cleanliness-server.vercel.app/issues/${issue._id}`, { method: "DELETE" });
           setIssues(issues.filter((i) => i._id !== issue._id));
           Swal.fire("Deleted!", "Your issue has been deleted.", "success");
         } catch {

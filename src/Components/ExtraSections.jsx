@@ -86,8 +86,8 @@ const ExtraSections = ({ stats }) => {
             Be a part of the change. Volunteer with us and make your community cleaner and greener.
           </p>
           <button 
-            onClick={() => navigate("/register")}
-            className="bg-white text-green-600 font-semibold py-3 px-6 md:px-8 rounded-xl hover:bg-gray-100 transition flex items-center justify-center gap-2 mx-auto"
+            onClick={() => navigate(`/all-issues`)}
+            className="bg-white text-green-600 font-semibold py-3 px-6 md:px-8 rounded-xl hover:bg-gray-100 transition flex items-center justify-center gap-2 mx-auto cursor-pointer"
           >
             <FaUsers className="text-lg" />
             Join Clean Drive Section

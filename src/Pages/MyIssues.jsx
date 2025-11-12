@@ -150,14 +150,14 @@ const MyIssues = () => {
                   <td className="px-4 py-3 text-center space-x-3">
                     <button
                       onClick={() => openUpdateModal(issue)}
-                      className="text-blue-600 hover:text-blue-800 transition"
+                      className="text-blue-600 hover:text-blue-800 transition cursor-pointer"
                       title="Edit Issue"
                     >
                       <FaEdit size={18} />
                     </button>
                     <button
                       onClick={() => handleDelete(issue)}
-                      className="text-red-600 hover:text-red-800 transition"
+                      className="text-red-600 hover:text-red-800 transition cursor-pointer"
                       title="Delete Issue"
                     >
                       <FaTrashAlt size={18} />

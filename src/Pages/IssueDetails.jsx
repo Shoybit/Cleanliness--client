@@ -121,11 +121,11 @@ const contributionData = {
           </div>
           <div className="md:w-1/2 mt-4 md:mt-0">
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white">{issue.title}</h2>
-            <p className="text-gray-600 mt-2 dark:text-gray-500"><span className="font-semibold dark:text-gray-500">Category:</span> {issue.category}</p>
-            <p className="text-gray-600 mt-1 dark:text-gray-500"><span className="font-semibold dark:text-gray-500">Location:</span> {issue.location}</p>
-            <p className="text-gray-600 mt-1 dark:text-gray-500"><span className="font-semibold dark:text-gray-500">Date:</span> {new Date(issue.date).toLocaleDateString()}</p>
-            <p className="text-gray-600 mt-1 dark:text-gray-500"><span className="font-semibold dark:text-gray-500 ">Suggested Budget:</span> ${issue.amount}</p>
-            <p className="text-gray-700 mt-4 dark:text-gray-500">{issue.description}</p>
+            <p className="text-gray-600 mt-2 dark:text-gray-400"><span className="font-semibold dark:text-gray-400">Category:</span> {issue.category}</p>
+            <p className="text-gray-600 mt-1 dark:text-gray-400"><span className="font-semibold dark:text-gray-400">Location:</span> {issue.location}</p>
+            <p className="text-gray-600 mt-1 dark:text-gray-400"><span className="font-semibold dark:text-gray-400">Date:</span> {new Date(issue.date).toLocaleDateString()}</p>
+            <p className="text-gray-600 mt-1 dark:text-gray-400"><span className="font-semibold dark:text-gray-400 ">Suggested Budget:</span> ${issue.amount}</p>
+            <p className="text-gray-700 mt-4 dark:text-gray-400">{issue.description}</p>
 
             <label
               htmlFor="contribute-modal"

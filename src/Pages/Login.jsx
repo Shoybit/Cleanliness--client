@@ -76,17 +76,17 @@ const handleEmailLogin = (e) => {
         theme="light"
       />
       
-      <div className="max-w-md mx-auto my-16 bg-white shadow-lg rounded-xl p-8 border border-gray-200">
+      <div className="max-w-md mx-auto my-16 dark:bg-[#17202f] bg-white shadow-lg rounded-xl p-8 border border-gray-200">
 
         <div className="flex flex-col items-center mb-8">
           <div className="w-16 h-16 flex items-center justify-center mb-4">
             <img src={logo} alt="Cleanliness Logo" className="w-full h-full object-contain" />
           </div>
           <h1 className="text-3xl font-bold text-[#00a63e]">Cleanliness</h1>
-          <p className="text-gray-600 mt-3">Login to your account</p>
+          <p className="text-gray-600 mt-3 dark:text-gray-400">Login to your account</p>
         </div>
 
-        <h2 className="text-xl font-semibold mb-8 text-center text-gray-800">Welcome Back</h2>
+        <h2 className="text-xl font-semibold mb-8 text-center text-gray-800 dark:text-gray-400">Welcome Back</h2>
         
         <form onSubmit={handleEmailLogin} className="space-y-6">
           <div>
@@ -125,17 +125,20 @@ const handleEmailLogin = (e) => {
           </button>
         </form>
 
-        <div className="divider my-8">OR</div>
+        <div className="divider my-8 text-gray-700 dark:text-gray-500 dark:before:bg-gray-600 dark:after:bg-gray-600">
+  OR
+</div>
+
         
         <button 
           onClick={handleGoogleLogin} 
           className="btn btn-outline w-full border-gray-300 hover:bg-gray-50 hover:border-gray-400 py-3 h-auto flex items-center justify-center"
         >
-          <FcGoogle className="w-5 h-5 mr-3" />
+          <FcGoogle className="w-5 h-5 mr-3 " />
           Continue with Google
         </button>
 
-        <p className="mt-8 text-center text-gray-600">
+        <p className="mt-8 text-center text-gray-600 dark:text-white">
           New user?{" "}
           <Link to="/register" className="text-[#016630] font-semibold hover:underline">
             Register here

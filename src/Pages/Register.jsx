@@ -131,17 +131,17 @@ const Register = () => {
         theme="light"
       />
       
-      <div className="max-w-md mx-auto my-16 bg-white shadow-lg rounded-xl p-8 border border-gray-200">
+      <div className="max-w-md mx-auto my-16 dark:bg-[#17202f] bg-white shadow-lg rounded-xl p-8 border border-gray-200">
 
         <div className="flex flex-col items-center mb-8">
           <div className="w-16 h-16 flex items-center justify-center mb-4">
             <img src={logo} alt="Cleanliness Logo" className="w-full h-full object-contain" />
           </div>
           <h1 className="text-3xl font-bold text-[#00a63e]">Cleanliness</h1>
-          <p className="text-gray-600 mt-3">Create your account</p>
+          <p className="text-gray-600 mt-3 dark:text-gray-400">Create your account</p>
         </div>
 
-        <h2 className="text-xl font-semibold mb-8 text-center text-gray-800">Join Us Today</h2>
+        <h2 className="text-xl font-semibold mb-8 text-center dark:text-gray-400 text-gray-800">Join Us Today</h2>
         
         <form onSubmit={handleRegister} className="space-y-6">
           <div>
@@ -214,7 +214,7 @@ const Register = () => {
           Continue with Google
         </button>
 
-        <p className="mt-8 text-center text-gray-600">
+        <p className="mt-8 text-center text-gray-600 dark:text-white">
           Already have an account?{" "}
           <Link to="/login" className="text-[#016630] font-semibold hover:underline">
             Login here

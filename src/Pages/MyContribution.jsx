@@ -79,10 +79,10 @@ const MyContribution = () => {
     <div className="p-6 max-w-10/12 mx-auto px-4">
       <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-8">
         <div className="text-center lg:text-left mb-4 lg:mb-0">
-          <h1 className="text-3xl font-bold text-gray-900">
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
             My Contributions
           </h1>
-          <p className="text-gray-600 mt-2">
+          <p className="text-gray-600 mt-2 dark:text-gray-400">
             Total Contributions: {contributions.length}
           </p>
         </div>
@@ -101,21 +101,21 @@ const MyContribution = () => {
       </div>
 
       {contributions.length === 0 ? (
-        <div className="text-center py-16 bg-gray-50 rounded-2xl border-2 border-dashed border-gray-300">
+        <div className="text-center py-16 dark:bg-[#17202f] bg-gray-50 rounded-2xl border-2 border-dashed border-gray-300">
           <FaExclamationTriangle className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-          <h3 className="text-xl font-semibold text-gray-700 mb-2">No contributions yet</h3>
+          <h3 className="text-xl font-semibold text-gray-700 mb-2 dark:text-white">No contributions yet</h3>
           <p className="text-gray-500 max-w-md mx-auto">
             You haven't made any contributions yet. Start supporting causes you care about!
           </p>
         </div>
       ) : (
-        <div className="grid gap-4 mb-8">
+        <div className="grid gap-4 mb-8 ">
           {contributions.map(c => (
-            <div key={c._id} className="bg-white rounded-xl shadow-sm border border-gray-200 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 p-6">
+            <div key={c._id} className="dark:bg-[#17202f] bg-white rounded-xl shadow-sm border border-gray-200 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 p-6">
               <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
                 <div className="flex-1">
                   <div className="flex items-start justify-between mb-3">
-                    <h3 className="text-lg font-semibold text-gray-900 line-clamp-2 pr-4">
+                    <h3 className="text-lg font-semibold text-gray-900 line-clamp-2 pr-4 dark:text-white">
                       {c.title}
                     </h3>
                     <span className="text-2xl font-bold text-green-600 whitespace-nowrap">

@@ -103,15 +103,12 @@ const contributionData = {
     return <Loader></Loader>; 
   }
 
-
-  if (!issue) return <p className="text-center mt-20">Loading...</p>;
-
   return (
     <div className="max-w-10/12 mx-auto px-4 py-12">
       <ToastContainer />
 
 
-      <div className="bg-white rounded-2xl shadow-lg p-6 mb-8">
+      <div className="bg-white rounded-2xl shadow-lg p-6 mb-8 dark:bg-gray-800">
         <div className="md:flex gap-6">
           <div className="md:w-1/2">
             {issue.image ? (
@@ -123,12 +120,12 @@ const contributionData = {
             )}
           </div>
           <div className="md:w-1/2 mt-4 md:mt-0">
-            <h2 className="text-3xl font-bold text-gray-900">{issue.title}</h2>
-            <p className="text-gray-600 mt-2"><span className="font-semibold">Category:</span> {issue.category}</p>
-            <p className="text-gray-600 mt-1"><span className="font-semibold">Location:</span> {issue.location}</p>
-            <p className="text-gray-600 mt-1"><span className="font-semibold">Date:</span> {new Date(issue.date).toLocaleDateString()}</p>
-            <p className="text-gray-600 mt-1"><span className="font-semibold">Suggested Budget:</span> ${issue.amount}</p>
-            <p className="text-gray-700 mt-4">{issue.description}</p>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">{issue.title}</h2>
+            <p className="text-gray-600 mt-2 dark:text-gray-500"><span className="font-semibold dark:text-gray-500">Category:</span> {issue.category}</p>
+            <p className="text-gray-600 mt-1 dark:text-gray-500"><span className="font-semibold dark:text-gray-500">Location:</span> {issue.location}</p>
+            <p className="text-gray-600 mt-1 dark:text-gray-500"><span className="font-semibold dark:text-gray-500">Date:</span> {new Date(issue.date).toLocaleDateString()}</p>
+            <p className="text-gray-600 mt-1 dark:text-gray-500"><span className="font-semibold dark:text-gray-500 ">Suggested Budget:</span> ${issue.amount}</p>
+            <p className="text-gray-700 mt-4 dark:text-gray-500">{issue.description}</p>
 
             <label
               htmlFor="contribute-modal"
@@ -151,7 +148,7 @@ const contributionData = {
               name="title" 
               value={issue.title} 
               readOnly 
-              className="input input-bordered w-full bg-gray-100" 
+              className="input input-bordered w-full bg-gray-100 dark:bg-[#1d232a] dark:text-white" 
             />
             <input 
               type="number" 
@@ -174,7 +171,7 @@ const contributionData = {
               name="email" 
               value={formData.email} 
               readOnly 
-              className="input input-bordered w-full bg-gray-100" 
+              className="input input-bordered w-full bg-gray-100 dark:bg-[#1d232a]" 
             />
             <input 
               type="text" 
@@ -207,10 +204,10 @@ const contributionData = {
       </div>
 
 
-      <div className="bg-white rounded-2xl shadow-lg p-6 mt-8">
-        <h3 className="text-xl font-bold mb-4">Contributors</h3>
+      <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 mt-8">
+        <h3 className="text-xl font-bold mb-4 dark:text-white">Contributors</h3>
         {contributors.length === 0 ? (
-          <p className="text-gray-600">No contributions yet.</p>
+          <p className="text-gray-600 dark:text-gray-500">No contributions yet.</p>
         ) : (
           <>
             <table className="w-full text-left border-collapse">

@@ -25,16 +25,16 @@ const ExtraSections = ({ stats }) => {
   return (
     <div className="max-w-10/12 mx-auto px-4 py-12 space-y-16">
 
-      <div className="bg-white rounded-2xl shadow-lg p-8 text-center">
+      <div className="bg-white rounded-2xl shadow-lg p-8 text-center dark:bg-gray-800">
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
           <div className="bg-green-100 p-4 rounded-full inline-flex items-center justify-center">
             <RiUserCommunityFill className="text-4xl text-green-600" />
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold">Community Stats</h2>
+          <h2 className="text-3xl md:text-4xl font-bold ">Community Stats</h2>
         </div>
         
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-          <div className="bg-green-50 rounded-xl p-6 hover:shadow-md transition-shadow duration-300">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 " >
+          <div className="bg-green-50 rounded-xl p-6 hover:shadow-md transition-shadow duration-300 ">
             <div className="flex justify-center mb-4">
               <div className="bg-green-100 p-3 rounded-full">
                 <FaUsers className="text-3xl text-green-600" />

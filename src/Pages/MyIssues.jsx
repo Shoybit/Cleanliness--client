@@ -106,11 +106,14 @@ const MyIssues = () => {
   return (
     <div className="p-6 max-w-10/12 mx-auto px-4">
       <ToastContainer />
-      <h1 className="text-3xl font-bold text-center mb-6 text-green-700">
+      <h1 className="text-3xl font-bold text-center mb-6 dark:text-white">
         My Issues
       </h1>
+      <p className="text-center text-gray-600 dark:text-gray-400 mb-6">
+        Here you can view, edit, or delete the cleanliness issues you’ve reported.
+      </p>
 
-      <div className="overflow-x-auto shadow-lg rounded-2xl border border-gray-200 bg-white">
+      <div className="overflow-x-auto shadow-lg rounded-2xl border dark:bg-[#17202f] border-gray-200 bg-white">
         <table className="w-full border-collapse">
           <thead className="bg-green-100 text-green-800">
             <tr>
@@ -127,16 +130,16 @@ const MyIssues = () => {
               issues.map((issue) => (
                 <tr
                   key={issue._id}
-                  className={`border-b hover:bg-green-50 transition`}
+                  className={`border-b dark:hover:bg-gray-700 dark:transition hover:bg-green-50 transition`}
                 >
-                  <td className="px-4 py-3 font-semibold">{issue.title}</td>
-                  <td className="px-4 py-3">{issue.category}</td>
-                  <td className="px-4 py-3">{issue.location}</td>
-                  <td className="px-4 py-3 text-green-700 font-medium">
+                  <td className="px-4 py-3 font-semibold dark:text-white">{issue.title}</td>
+                  <td className="px-4 py-3 dark:text-white">{issue.category}</td>
+                  <td className="px-4 py-3 dark:text-white">{issue.location}</td>
+                  <td className="px-4 py-3 text-green-700 font-medium dark:text-green-500">
                     ${issue.amount || 0}
                   </td>
                   <td
-                    className={`px-4 py-3 font-semibold ${
+                    className={`px-4 py-3 font-semibold  ${
                       issue.status === "ongoing"
                         ? "text-yellow-600"
                         : "text-green-600"

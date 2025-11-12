@@ -71,9 +71,9 @@ const AllIssues = () => {
           <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
             <FaClipboardList className="w-6 h-6 text-green-600" />
           </div>
-          <h1 className="text-4xl font-bold text-gray-900">All Issues</h1>
+          <h1 className="text-4xl font-bold text-gray-900 dark:text-white">All Issues</h1>
         </div>
-        <p className="text-gray-600 max-w-2xl mx-auto">
+        <p className="text-gray-600 max-w-2xl mx-auto dark:text-gray-400">
           Browse and filter environmental issues by category, status, or search by title/location.
         </p>
       </div>
@@ -81,13 +81,13 @@ const AllIssues = () => {
       <div className="flex justify-center mb-6">
         <div className="relative w-full max-w-2xl">
           <div className="relative">
-            <FaSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+            <FaSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-green-400 w-5 h-5 "  />
             <input
               type="text"
               placeholder="Search by title or location..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-12 pr-4 py-4 border border-gray-300 rounded-2xl focus:ring-3 focus:ring-green-500 focus:border-green-500 shadow-sm transition-all duration-300 text-lg bg-white hover:shadow-md"
+              className="w-full pl-12 pr-4 py-4 border border-gray-300 rounded-2xl dark:text-black focus:ring-3 focus:ring-green-500 focus:border-green-500 shadow-sm transition-all duration-300 text-lg bg-white hover:shadow-md"
             />
           </div>
         </div>
@@ -96,7 +96,7 @@ const AllIssues = () => {
       <div className="flex flex-col md:flex-row gap-4 mb-10 justify-center items-center">
 
         <select
-          className="border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-green-500"
+          className="border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-green-500 dark:text-black dark:bg-white"
           value={selectedCategory}
           onChange={(e) => setSelectedCategory(e.target.value)}
         >
@@ -108,7 +108,7 @@ const AllIssues = () => {
         </select>
 
         <select
-          className="border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-green-500"
+          className="border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-green-500 dark:text-black dark:bg-white"
           value={selectedStatus}
           onChange={(e) => setSelectedStatus(e.target.value)}
         >
@@ -127,7 +127,7 @@ const AllIssues = () => {
             return (
               <div
                 key={issue._id}
-                className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 overflow-hidden group flex flex-col"
+                className="bg-white rounded-2xl  dark:bg-gray-800 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 overflow-hidden group flex flex-col"
               >
 
                 <div className="relative overflow-hidden">
@@ -151,21 +151,21 @@ const AllIssues = () => {
                 </div>
 
                 <div className="p-6 flex flex-col flex-1">
-                  <h2 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-green-600 transition-colors">
+                  <h2 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-green-600 transition-colors dark:text-white">
                     {issue.title}
                   </h2>
-                  <p className="text-gray-600 mb-4 line-clamp-3 leading-relaxed flex-1">
+                  <p className="text-gray-600 mb-4 line-clamp-3 leading-relaxed flex-1 dark:text-gray-400">
                     {issue.description}
                   </p>
 
                   <div className="space-y-2 mb-6">
-                    <div className="flex items-center gap-3 text-gray-500">
+                    <div className="flex items-center gap-3 text-gray-500 dark:text-gray-400">
                       <FaMapMarkerAlt className="w-4 h-4 text-green-500" />
                       <span className="text-sm">{issue.location}</span>
                     </div>
 
                     {issue.date && (
-                      <div className="flex items-center gap-3 text-gray-500">
+                      <div className="flex items-center gap-3 text-gray-500 dark:text-gray-400">
                         <FaCalendarAlt className="w-4 h-4 text-blue-500" />
                         <span className="text-sm">
                           {new Date(issue.date).toLocaleDateString()}
@@ -174,7 +174,7 @@ const AllIssues = () => {
                     )}
 
                     {issue.amount && (
-                      <div className="flex items-center gap-3 text-gray-500">
+                      <div className="flex items-center gap-3 text-gray-500 dark:text-gray-400">
                         <FaDollarSign className="w-4 h-4 text-yellow-500" />
                         <span className="text-sm font-semibold">
                           Budget: ${issue.amount}
@@ -183,7 +183,7 @@ const AllIssues = () => {
                     )}
 
                     {issue.status && (
-                      <div className="flex items-center gap-3 text-gray-500">
+                      <div className="flex items-center gap-3 text-gray-500 dark:text-gray-400">
                         <FaClipboardList className="w-4 h-4 text-purple-500" />
                         <span className="text-sm font-semibold">
                           Status: {issue.status}

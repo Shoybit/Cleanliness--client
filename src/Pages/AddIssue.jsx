@@ -84,15 +84,20 @@ setIsSubmitting(false);
     return <Loader></Loader>; 
   }
 return (
-<div className="max-w-2xl mx-auto p-6 bg-linear-to-br from-white to-green-50 shadow-2xl rounded-3xl mt-8 mb-8 border border-green-100">
+<div   className="max-w-2xl mx-auto p-6 
+  bg-gradient-to-br from-white to-green-50 
+  dark:from-gray-900 dark:to-gray-800
+  shadow-2xl rounded-3xl mt-8 mb-8 
+  border border-green-100 dark:border-gray-700
+  transition-all duration-300">
 <div className="text-center mb-8">
-<div className="inline-flex items-center justify-center w-16 h-16 bg-green-100 rounded-full mb-4">
+<div className="inline-flex items-center justify-center w-16 h-16 bg-green-100  rounded-full mb-4">
 <FaRecycle className="text-3xl text-green-600" />
 </div>
-<h2 className="text-3xl font-bold bg-linear-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
+<h2 className="text-3xl font-bold bg-linear-to-r from-green-600 dark:text-white to-emerald-600 bg-clip-text text-transparent">
 Report Cleanliness Issue
 </h2>
-<p className="text-gray-600 mt-2">Help keep our community clean and beautiful</p>
+<p className="text-gray-600 mt-2 dark:text-gray-400">Help keep our community clean and beautiful</p>
 </div>
 
 <form onSubmit={handleSubmit} className="space-y-6">
@@ -104,7 +109,7 @@ Report Cleanliness Issue
 type="email"
 value={user?.email || ""}
 readOnly
-className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl bg-gray-50 text-gray-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
+className="w-full pl-10 pr-4 py-3 dark:bg-[#17202f] dark:text-white border border-gray-300 rounded-xl bg-gray-50 text-gray-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
 />
 </div>
 
@@ -130,7 +135,7 @@ required
 name="category"
 value={formData.category}
 onChange={handleChange}
-className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 appearance-none bg-white"
+className="w-full pl-10 pr-4 py-3  dark:bg-[#17202f] dark:text-white border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200 appearance-none bg-white"
 required
 >
 <option value="">Select Category</option>

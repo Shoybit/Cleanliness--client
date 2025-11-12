@@ -33,11 +33,11 @@ const LatestCleans = () => {
     <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
       <FaLeaf className="w-6 h-6 text-green-600" />
     </div>
-    <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mt-2 sm:mt-0">
+    <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mt-2 sm:mt-0 dark:text-white">
       Latest Cleanup Activities
     </h1>
   </div>
-  <p className="text-[16px] text-gray-600 max-w-3xl mx-auto">
+  <p className="text-[16px] text-gray-600 max-w-3xl mx-auto dark:text-gray-400">
     Discover recent community efforts and ongoing cleanup initiatives in your area
   </p>
 </div>
@@ -50,7 +50,7 @@ const LatestCleans = () => {
           return (
             <div
               key={issue.id || issue._id}
-              className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 overflow-hidden group flex flex-col"
+              className="bg-white rounded-2xl shadow-lg dark:bg-gray-800 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 overflow-hidden group flex flex-col"
             >
               <div className="relative overflow-hidden">
                 {issue.image ? (
@@ -73,28 +73,28 @@ const LatestCleans = () => {
               </div>
 
               <div className="p-6 flex flex-col flex-1">
-                <h2 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2 group-hover:text-green-600 transition-colors">
+                <h2 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2 dark:text-white group-hover:text-green-600 transition-colors">
                   {issue.title}
                 </h2>
 
-                <p className="text-gray-600 mb-4 line-clamp-3 leading-relaxed flex-1">
+                <p className="text-gray-600 mb-4 line-clamp-3 leading-relaxed flex-1 dark:text-gray-400">
                   {issue.description}
                 </p>
 
                 <div className="space-y-3 mb-6">
-                  <div className="flex items-center gap-3 text-gray-500">
+                  <div className="flex items-center gap-3 text-gray-500 dark:text-gray-400">
                     <FaMapMarkerAlt className="w-4 h-4 text-green-500" />
                     <span className="text-sm">{issue.location || 'Location not specified'}</span>
                   </div>
 
                   {issue.date && (
-                    <div className="flex items-center gap-3 text-gray-500">
+                    <div className="flex items-center gap-3 text-gray-500 dark:text-gray-400">
                       <FaCalendarAlt className="w-4 h-4 text-blue-500" />
                       <span className="text-sm">{new Date(issue.date).toLocaleDateString()}</span>
                     </div>
                   )}
 
-                  <div className="flex items-center gap-4 text-sm text-gray-500">
+                  <div className="flex items-center gap-4 text-sm text-gray-500 ">
                     {issue.volunteers && (
                       <div className="flex items-center gap-1">
                         <div className="w-2 h-2 bg-green-400 rounded-full"></div>

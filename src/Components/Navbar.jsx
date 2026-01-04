@@ -63,6 +63,8 @@ const Navbar = () => {
                 <>
                   <Link to="/" className={`transition ${isActive("/") ? "text-green-600 font-semibold" : "hover:text-green-600 dark:text-white"}`}>Home</Link>
                   <Link to="/all-issues" className={`transition ${isActive("/all-issues") ? "text-green-600 font-semibold" : "text-black hover:text-green-600 dark:text-white"}`}>All Issues</Link>
+                  <Link to="/about" className={`transition ${isActive("/about") ? "text-green-600 font-semibold" : "text-black hover:text-green-600 dark:text-white"}`}>About</Link>
+                  
                   <Link
                     to="/dashboard"
                     className={`transition ${

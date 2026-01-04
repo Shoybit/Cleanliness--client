@@ -46,6 +46,7 @@ const IssueDetails = () => {
 
   useEffect(() => {
     fetchContributors();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
   const handleInputChange = e => {

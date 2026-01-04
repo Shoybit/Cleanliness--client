@@ -3,44 +3,37 @@ import { useContext } from "react";
 import { AuthContext } from "../../Context/AuthContext";
 
 const Sidebar = () => {
-  const { role } = useContext(AuthContext); 
+  const { role } = useContext(AuthContext);
 
   return (
-    <aside className="w-64 bg-white dark:bg-gray-800 shadow hidden md:block">
-      <div className="p-5 text-xl font-bold">Dashboard</div>
+    <aside className="w-64 min-h-screen bg-gray-900 text-white p-5">
+      <h2 className="text-xl font-bold mb-6">Dashboard</h2>
 
-      <nav className="flex flex-col gap-2 px-4">
-        <NavLink to="/dashboard" className="dashboard-link">
-          Overview
-        </NavLink>
+      <ul className="space-y-3">
+        <li>
+          <NavLink to="/dashboard" className="block hover:text-green-400">
+            Overview
+          </NavLink>
+        </li>
 
-        {/* User Menu */}
-        {role === "user" && (
-          <>
-            <NavLink to="/dashboard/my-issues" className="dashboard-link">
-              My Issues
-            </NavLink>
-            <NavLink to="/dashboard/profile" className="dashboard-link">
-              Profile
-            </NavLink>
-          </>
-        )}
+        <li>
+          <NavLink to="/dashboard/my-issues" className="block hover:text-green-400">
+            My Issues
+          </NavLink>
+        </li>
 
-        {/* Admin Menu */}
+        {/* Admin Only */}
         {role === "admin" && (
-          <>
-            <NavLink to="/dashboard/manage-issues" className="dashboard-link">
-              Manage Issues
-            </NavLink>
-            <NavLink to="/dashboard/manage-users" className="dashboard-link">
+          <li>
+            <NavLink
+              to="/dashboard/manage-users"
+              className="block hover:text-green-400"
+            >
               Manage Users
             </NavLink>
-            <NavLink to="/dashboard/stats" className="dashboard-link">
-              Statistics
-            </NavLink>
-          </>
+          </li>
         )}
-      </nav>
+      </ul>
     </aside>
   );
 };

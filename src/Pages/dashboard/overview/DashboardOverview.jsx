@@ -10,6 +10,7 @@ import {
   Pie,
   Cell,
 } from "recharts";
+import DashboardSkeleton from "../../../Components/dashboard/DashboardSkeleton";
 
 const DashboardOverview = () => {
   const [stats, setStats] = useState(null);
@@ -29,14 +30,19 @@ const DashboardOverview = () => {
       .catch(() => setLoading(false));
   }, []);
 
-  if (loading) {
-    return <div className="text-center py-20">Loading dashboard...</div>;
-  }
+ if (loading) {
+  return <DashboardSkeleton/>;
+}
 
-  const statusData = [
-    { name: "Pending", value: stats?.pending || 0 },
-    { name: "Resolved", value: stats?.resolved || 0 },
-  ];
+// Safe chart data
+const barData = stats?.byCategory?.length
+  ? stats.byCategory
+  : [];
+
+const pieData = [
+  { name: "Pending", value: stats?.pending || 0 },
+  { name: "Resolved", value: stats?.resolved || 0 },
+];
 
   const COLORS = ["#f59e0b", "#10b981"];
 
@@ -67,40 +73,44 @@ const DashboardOverview = () => {
       {/* Charts */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Bar Chart */}
-        <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow h-80">
-          <h3 className="mb-4 font-semibold">Issues by Category</h3>
-          <ResponsiveContainer width="100%" height="100%">
-            <BarChart data={stats.byCategory}>
-              <XAxis dataKey="category" />
-              <YAxis />
-              <Tooltip />
-              <Bar dataKey="count" fill="#3b82f6" />
-            </BarChart>
-          </ResponsiveContainer>
-        </div>
+       <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow h-80">
+  <h3 className="mb-4 font-semibold">Issues by Category</h3>
+
+  <ResponsiveContainer width="100%" height={300}>
+    <BarChart data={barData}>
+      <XAxis dataKey="category" />
+      <YAxis />
+      <Tooltip />
+      <Bar dataKey="count" fill="#3b82f6" radius={[6, 6, 0, 0]} />
+    </BarChart>
+  </ResponsiveContainer>
+</div>
+
 
         {/* Pie Chart */}
-        <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow h-80">
-          <h3 className="mb-4 font-semibold">Issue Status</h3>
-          <ResponsiveContainer width="100%" height="100%">
-            <PieChart>
-              <Pie
-                data={statusData}
-                dataKey="value"
-                nameKey="name"
-                cx="50%"
-                cy="50%"
-                outerRadius={80}
-                label
-              >
-                {statusData.map((_, index) => (
-                  <Cell key={index} fill={COLORS[index]} />
-                ))}
-              </Pie>
-              <Tooltip />
-            </PieChart>
-          </ResponsiveContainer>
-        </div>
+<div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow h-80">
+  <h3 className="mb-4 font-semibold">Issue Status</h3>
+
+  <ResponsiveContainer width="100%" height="100%">
+    <PieChart>
+      <Pie
+        data={pieData}
+        dataKey="value"
+        nameKey="name"
+        cx="50%"
+        cy="50%"
+        outerRadius={80}
+        label
+      >
+        {pieData.map((_, index) => (
+          <Cell key={index} fill={COLORS[index]} />
+        ))}
+      </Pie>
+      <Tooltip />
+    </PieChart>
+  </ResponsiveContainer>
+</div>
+
       </div>
 
       {/* Recent Issues */}

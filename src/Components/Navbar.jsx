@@ -63,9 +63,16 @@ const Navbar = () => {
                 <>
                   <Link to="/" className={`transition ${isActive("/") ? "text-green-600 font-semibold" : "hover:text-green-600 dark:text-white"}`}>Home</Link>
                   <Link to="/all-issues" className={`transition ${isActive("/all-issues") ? "text-green-600 font-semibold" : "text-black hover:text-green-600 dark:text-white"}`}>All Issues</Link>
-                  <Link to="/addissue" className={`transition ${isActive("/addissue") ? "text-green-600 font-semibold" : "text-black hover:text-green-600 dark:text-white"}`}>Add Issues</Link>
-                  <Link to="/my-issues" className={`transition ${isActive("/my-issues") ? "text-green-600 font-semibold" : "text-black hover:text-green-600 dark:text-white"}`}>My Issues</Link>
-                  <Link to="/my-contribution" className={`transition ${isActive("/my-contribution") ? "text-green-600 font-semibold" : "text-black hover:text-green-600 dark:text-white"}`}>My Contribution</Link>
+                  <Link
+                    to="/dashboard"
+                    className={`transition ${
+                      isActive("/dashboard")
+                        ? "text-green-600 font-semibold"
+                        : "text-black hover:text-green-600 dark:text-white"
+                    }`}
+                  >
+                    Dashboard
+                  </Link>
 
                   <div className="relative" ref={dropdownRef}>
                     <button onClick={() => setProfileDropdown(!profileDropdown)} className="flex items-center gap-2 px-3 py-2 rounded-md hover:bg-gray-100 transition">
@@ -120,12 +127,17 @@ const Navbar = () => {
           <div className="lg:hidden w-full bg-white/90 backdrop-blur-sm shadow-md">
             <div className="px-4 pt-2 pb-3 space-y-1">
               {user ? (
-                <>
-                  <Link to="/" className="block px-3 py-2 rounded hover:bg-green-50 dark:text-black" onClick={() => setMenuOpen(false)}>Home</Link>
-                  <Link to="/all-issues" className="block px-3 py-2 rounded hover:bg-green-50 dark:text-black" onClick={() => setMenuOpen(false)}>All Issues</Link>
-                  <Link to="/addissue" className="block px-3 py-2 rounded hover:bg-green-50 dark:text-black" onClick={() => setMenuOpen(false)}>Add Issues</Link>
-                  <Link to="/my-issues" className="block px-3 py-2 rounded hover:bg-green-50 dark:text-black" onClick={() => setMenuOpen(false)}>My Issues</Link>
-                  <Link to="/my-contribution" className="block px-3 py-2 rounded hover:bg-green-50 dark:text-black" onClick={() => setMenuOpen(false)}>My Contribution</Link>
+                  <>
+                   <Link to="/" className="block px-3 py-2 rounded hover:bg-green-50 dark:text-black" onClick={() => setMenuOpen(false)}>Home</Link>
+                   <Link to="/all-issues" className="block px-3 py-2 rounded hover:bg-green-50 dark:text-black" onClick={() => setMenuOpen(false)}>All Issues</Link>
+                   <Link
+                  to="/dashboard"
+                  className="block px-3 py-2 rounded hover:bg-green-50 dark:text-black"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  Dashboard
+                </Link>
+
                   <div className="border-t border-gray-200 pt-2">
                     <p className="text-black font-medium px-3 py-2">{user?.displayName || 'User'}</p>
                     <button onClick={handleLogout} className="block w-full text-left px-3 py-2 text-red-600 hover:bg-red-50 rounded">Logout</button>

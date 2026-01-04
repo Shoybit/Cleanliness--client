@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useContext } from "react";
-import { AuthContext } from "../Context/AuthContext";
+import { AuthContext } from "../../../../Context/AuthContext";
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
 import { FaExclamationTriangle, FaCalendarAlt, FaCheck, FaDownload } from "react-icons/fa";
-import Loader from "../Components/Loader";
+import Loader from "../../../../Components/Loader";
 
 const MyContribution = () => {
   const { user } = useContext(AuthContext);

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import DashboardSkeleton from "../../../../Components/dashboard/DashboardSkeleton";
 
 const ManageUsers = () => {
   const [users, setUsers] = useState([]);
@@ -22,9 +23,9 @@ const ManageUsers = () => {
     alert(`User ${id} deleted (demo)`);
   };
 
-  if (loading) {
-    return <div className="text-center py-20">Loading users...</div>;
-  }
+ if (loading) {
+  return <DashboardSkeleton/>;
+}
 
   return (
     <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow">

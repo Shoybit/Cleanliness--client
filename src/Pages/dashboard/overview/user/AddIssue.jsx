@@ -2,8 +2,8 @@ import React, { useState, useContext, useEffect } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FaRecycle } from "react-icons/fa";
-import { AuthContext } from "../../Context/AuthContext";
-import Loader from "../../Components/Loader";
+import { AuthContext } from "../../../../Context/AuthContext";
+import Loader from "../../../../Components/Loader";
 
 
 const AddIssue = () => {
@@ -85,7 +85,7 @@ setIsSubmitting(false);
   }
 return (
 <div   className="max-w-2xl mx-auto p-6 
-  bg-gradient-to-br from-white to-green-50 
+  bg-linear-to-br from-white to-green-50 
   dark:from-gray-900 dark:to-gray-800
   shadow-2xl rounded-3xl mt-8 mb-8 
   border border-green-100 dark:border-gray-700

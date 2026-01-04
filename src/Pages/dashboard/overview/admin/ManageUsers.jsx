@@ -202,7 +202,7 @@ const ManageUsers = () => {
                   >
                     <td className="py-4 px-6">
                       <div className="flex items-center">
-                        <div className="flex-shrink-0 h-10 w-10 bg-linear-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-semibold">
+                        <div className="shrink-0 h-10 w-10 bg-linear-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-semibold">
                           {user.name?.charAt(0).toUpperCase()}
                         </div>
                         <div className="ml-4">

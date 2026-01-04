@@ -127,12 +127,22 @@ const contributionData = {
             <p className="text-gray-600 mt-1 dark:text-gray-400"><span className="font-semibold dark:text-gray-400 ">Suggested Budget:</span> ${issue.amount}</p>
             <p className="text-gray-700 mt-4 dark:text-gray-400">{issue.description}</p>
 
-            <label
-              htmlFor="contribute-modal"
-              className="mt-6 bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-xl transition cursor-pointer inline-block"
-            >
-              Pay Clean-Up Contribution
-            </label>
+              {user ? (
+                <label
+                  htmlFor="contribute-modal"
+                  className="mt-6 bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-xl transition cursor-pointer inline-block"
+                >
+                  Pay Clean-Up Contribution
+                </label>
+              ) : (
+                <button
+                  onClick={() => toast.error("Please login to contribute")}
+                  className="mt-6 bg-gray-400 text-white font-semibold py-3 px-6 rounded-xl cursor-not-allowed"
+                >
+                  Login to Contribute
+                </button>
+              )}
+
           </div>
         </div>
       </div>

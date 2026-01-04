@@ -40,9 +40,9 @@ export const router = createBrowserRouter([
       {
         path: "issue-details/:id",
         element: (
-          <PrivateRoute>
+          <>
             <IssueDetails />
-          </PrivateRoute>
+          </>
         ),
       },
     ],

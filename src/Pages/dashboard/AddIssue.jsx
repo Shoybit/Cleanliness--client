@@ -1,9 +1,9 @@
 import React, { useState, useContext, useEffect } from "react";
-import { AuthContext } from "../Context/AuthContext";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FaRecycle } from "react-icons/fa";
-import Loader from "../Components/Loader";
+import { AuthContext } from "../../Context/AuthContext";
+import Loader from "../../Components/Loader";
 
 
 const AddIssue = () => {

@@ -1,10 +1,10 @@
 import React, { useEffect, useState, useContext } from "react";
-import { AuthContext } from "../Context/AuthContext";
+import { AuthContext } from "../../Context/AuthContext";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FaEdit, FaTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
-import Loader from "../Components/Loader";
+import Loader from "../../Components/Loader";
 
 const MyIssues = () => {
   const { user } = useContext(AuthContext);

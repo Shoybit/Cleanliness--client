@@ -7,10 +7,15 @@ import Register from "../Pages/Register";
 import IssueDetails from "../Pages/IssueDetails";
 import PrivateRoute from "./PrivateRoute";
 import AllIssues from "../Pages/AllIssues";
-import AddIssue from "../Pages/AddIssue";
-import MyIssues from "../Pages/MyIssues";
+import AddIssue from "../Pages/dashboard/AddIssue";
+import MyIssues from "../Pages/dashboard/MyIssues";
 import MyContribution from "../Pages/MyContribution";
 import Error from "../Components/Error";
+import DashboardLayout from "../Layout/DashboardLayout";
+import DashboardOverview from "../Pages/dashboard/overview/DashboardOverview";
+import Profile from "../Pages/dashboard/overview/user/Profile";
+import AdminRoute from "./AdminRoute";
+import ManageUsers from "../Pages/dashboard/overview/admin/ManageUsers";
 
 export const router = createBrowserRouter([
   {
@@ -70,5 +75,32 @@ export const router = createBrowserRouter([
         element: <Error></Error>
       },
     ]
+    
+    
   },
+
+{
+  path: "/dashboard",
+  element: (
+    <PrivateRoute>
+      <DashboardLayout />
+    </PrivateRoute>
+  ),
+  children: [
+    { index: true, element: <DashboardOverview /> },
+    { path: "add-issue", element: <AddIssue /> },
+    { path: "my-issues", element: <MyIssues /> },
+    {
+      path: "manage-users",
+      element: (
+        <AdminRoute>
+          <ManageUsers />
+        </AdminRoute>
+      ),
+    },
+  ],
+}
+
+
+
 ]);

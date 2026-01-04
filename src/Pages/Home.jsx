@@ -5,6 +5,7 @@ import LatestCleans from './LatestCleans';
 import ExtraSections from '../Components/ExtraSections';
 import Loader from '../Components/Loader';
 import Features from './Features';
+import HowItWorks from './HowItWorks';
 
 const Home = () => {
     const [loading, setLoading] = useState(true);
@@ -32,6 +33,7 @@ const Home = () => {
         <LatestCleans></LatestCleans>
         <ExtraSections></ExtraSections>
         <Features></Features>
+        <HowItWorks></HowItWorks>
             
         </div>
     );

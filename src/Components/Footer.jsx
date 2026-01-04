@@ -47,18 +47,18 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/addissue" className="hover:text-white hover:border-b-2 hover:border-white transition-all duration-200 pb-1">
-                 Add Issues
+                <Link to="/about" className="hover:text-white hover:border-b-2 hover:border-white transition-all duration-200 pb-1">
+                 About
                 </Link>
               </li>
               <li>
-                <Link to="/my-issues" className="hover:text-white hover:border-b-2 hover:border-white transition-all duration-200 pb-1">
-                 My Issues
+                <Link to="/Contact" className="hover:text-white hover:border-b-2 hover:border-white transition-all duration-200 pb-1">
+                 Contact
                 </Link>
               </li>
               <li>
-                <Link to="/my-contribution" className="hover:text-white hover:border-b-2 hover:border-white transition-all duration-200 pb-1">
-                  My Contribution
+                <Link to="/aDashboard" className="hover:text-white hover:border-b-2 hover:border-white transition-all duration-200 pb-1">
+                  Dashboard
                 </Link>
               </li>
             </ul>

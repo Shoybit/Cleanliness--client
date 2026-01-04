@@ -139,19 +139,20 @@ const values = [
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 via-white to-gray-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-950">
+    <div className="min-h-screen bg-linear-to-b from-gray-50 via-white to-gray-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-950">
       {/* Hero Section */}
       <div className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-green-500/10 to-emerald-500/10 dark:from-green-500/5 dark:to-emerald-500/5" />
+        <div className="absolute inset-0 bg-linear-to-r from-green-500/10 to-emerald-500/10 dark:from-green-500/5 dark:to-emerald-500/5" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 relative">
           <div className="text-center max-w-4xl mx-auto">
-            <div className="inline-flex items-center justify-center w-20 h-20 md:w-24 md:h-24 rounded-full bg-gradient-to-r from-green-500 to-emerald-500 mb-6 md:mb-8">
-              <Leaf className="w-10 h-10 md:w-12 md:h-12 text-white" />
-            </div>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 dark:from-white dark:via-gray-200 dark:to-white bg-clip-text text-transparent mb-4 md:mb-6">
+<div className="inline-flex items-center justify-center w-16 h-16 md:w-20 md:h-20 rounded-full bg-linear-to-r from-green-500 to-emerald-500 mb-6 md:mb-8">
+  <Leaf className="w-10 h-10 md:w-12 md:h-12 text-white" />
+</div>
+
+            <h1 className="text-4xl sm:text-5xl md:text-4xl font-bold bg-linear-to-r from-gray-900 via-gray-800 to-gray-900 dark:from-white dark:via-gray-200 dark:to-white bg-clip-text text-transparent mb-4 md:mb-6">
               About <span className="text-green-600 dark:text-green-400">Cleanliness</span>
             </h1>
-            <p className="text-lg sm:text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 md:mb-12 max-w-3xl mx-auto px-4">
+            <p className="text-base sm:text-lg md:text-xl  text-gray-600 dark:text-gray-300 mb-8 md:mb-12 max-w-3xl mx-auto px-4">
               A community-driven platform empowering citizens to create cleaner,
               healthier, and more sustainable cities through transparency and collaboration.
             </p>
@@ -192,9 +193,9 @@ const values = [
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 md:mb-24">
         <div className="grid lg:grid-cols-2 gap-8 md:gap-12">
           {/* Mission */}
-          <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-10 shadow-xl border border-gray-100 dark:border-gray-700">
+          <div className="bg-linear-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-10 shadow-xl border border-gray-100 dark:border-gray-700">
             <div className="flex items-center gap-3 md:gap-4 mb-6 md:mb-8">
-              <div className="p-2 md:p-3 rounded-xl bg-gradient-to-r from-blue-500 to-cyan-400">
+              <div className="p-2 md:p-3 rounded-xl bg-linear-to-r from-blue-500 to-cyan-400">
                 <Target className="w-6 h-6 md:w-8 md:h-8 text-white" />
               </div>
               <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">
@@ -214,7 +215,7 @@ const values = [
                 "Build healthier, more livable urban environments"
               ].map((item, index) => (
                 <div key={index} className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-green-500 dark:text-green-400 mt-0.5 flex-shrink-0" />
+                  <CheckCircle className="w-5 h-5 text-green-500 dark:text-green-400 mt-0.5 shrink-0" />
                   <span className="text-gray-700 dark:text-gray-300">{item}</span>
                 </div>
               ))}
@@ -222,9 +223,9 @@ const values = [
           </div>
 
           {/* Vision */}
-          <div className="bg-gradient-to-br from-white to-emerald-50 dark:from-gray-800 dark:to-emerald-900/20 rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-10 shadow-xl border border-emerald-100 dark:border-emerald-800/30">
+          <div className="bg-linear-to-br from-white to-emerald-50 dark:from-gray-800 dark:to-emerald-900/20 rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-10 shadow-xl border border-emerald-100 dark:border-emerald-800/30">
             <div className="flex items-center gap-3 md:gap-4 mb-6 md:mb-8">
-              <div className="p-2 md:p-3 rounded-xl bg-gradient-to-r from-emerald-500 to-green-400">
+              <div className="p-2 md:p-3 rounded-xl bg-linear-to-r from-emerald-500 to-green-400">
                 <Globe className="w-6 h-6 md:w-8 md:h-8 text-white" />
               </div>
               <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">
@@ -244,7 +245,7 @@ const values = [
                 "Data-driven environmental policymaking"
               ].map((item, index) => (
                 <div key={index} className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-emerald-500 dark:text-emerald-400 mt-0.5 flex-shrink-0" />
+                  <CheckCircle className="w-5 h-5 text-emerald-500 dark:text-emerald-400 mt-0.5 shrink-0" />
                   <span className="text-gray-700 dark:text-gray-300">{item}</span>
                 </div>
               ))}
@@ -302,7 +303,7 @@ const values = [
           
           <div className="relative">
             {/* Timeline line */}
-            <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 h-full w-0.5 bg-gradient-to-b from-green-400 to-emerald-500 dark:from-green-500 dark:to-emerald-400" />
+            <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 h-full w-0.5 bg-linear-to-b from-green-400 to-emerald-500 dark:from-green-500 dark:to-emerald-400" />
             
             {milestones.map((milestone, index) => (
               <div 
@@ -310,7 +311,7 @@ const values = [
                 className={`relative mb-8 md:mb-12 last:mb-0 ${index % 2 === 0 ? 'md:pr-1/2 md:pl-8' : 'md:pl-1/2 md:pr-8'} pl-12 md:pl-0`}
               >
                 {/* Timeline dot */}
-                <div className="absolute left-2 md:left-1/2 transform md:-translate-x-1/2 w-6 h-6 rounded-full bg-gradient-to-r from-green-500 to-emerald-400 border-4 border-white dark:border-gray-900 z-10" />
+                <div className="absolute left-2 md:left-1/2 transform md:-translate-x-1/2 w-6 h-6 rounded-full bg-linear-to-r from-green-500 to-emerald-400 border-4 border-white dark:border-gray-900 z-10" />
                 
                 <div className="bg-white dark:bg-gray-800 rounded-xl md:rounded-2xl p-5 md:p-6 shadow-lg border border-gray-100 dark:border-gray-700/50 hover:shadow-xl transition-all duration-300">
                   <div className="flex items-center gap-3 mb-3">
@@ -335,7 +336,7 @@ const values = [
 
       {/* CTA Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 md:mb-24">
-        <div className="bg-gradient-to-r from-green-500 to-emerald-500 dark:from-green-600 dark:to-emerald-600 rounded-2xl md:rounded-3xl p-8 md:p-12 text-center shadow-2xl">
+        <div className="bg-linear-to-r from-green-500 to-emerald-500 dark:from-green-600 dark:to-emerald-600 rounded-2xl md:rounded-3xl p-8 md:p-12 text-center shadow-2xl">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 md:mb-6">
             Join the Cleanliness Movement
           </h2>

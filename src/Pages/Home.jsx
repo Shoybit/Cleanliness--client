@@ -4,6 +4,7 @@ import CategorySection from './CategorySection';
 import LatestCleans from './LatestCleans';
 import ExtraSections from '../Components/ExtraSections';
 import Loader from '../Components/Loader';
+import Features from './Features';
 
 const Home = () => {
     const [loading, setLoading] = useState(true);
@@ -30,6 +31,7 @@ const Home = () => {
         <CategorySection></CategorySection>
         <LatestCleans></LatestCleans>
         <ExtraSections></ExtraSections>
+        <Features></Features>
             
         </div>
     );

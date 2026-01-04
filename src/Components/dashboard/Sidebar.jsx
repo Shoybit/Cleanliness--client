@@ -16,11 +16,12 @@ const Sidebar = () => {
 
       <ul className="space-y-3">
         {/* User menus */}
-        <li>
-          <NavLink to="/dashboard" className={linkClass}>
-            Overview
-          </NavLink>
-        </li>
+          <li>
+            <NavLink to="/dashboard" end className={linkClass}>
+              Overview
+            </NavLink>
+          </li>
+
 
         <li>
           <NavLink to="/dashboard/add-issue" className={linkClass}>

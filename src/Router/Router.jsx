@@ -27,6 +27,7 @@ import Profile from "../Pages/dashboard/overview/user/Profile";
 import DashboardOverview from "../Pages/dashboard/overview/DashboardOverview";
 import ManageUsers from "../Pages/dashboard/overview/admin/ManageUsers";
 import About from "../Pages/About";
+import Contact from "../Pages/Contact";
 
 export const router = createBrowserRouter([
   {
@@ -38,7 +39,8 @@ export const router = createBrowserRouter([
       { path: "login", element: <Login /> },
       { path: "register", element: <Register /> },
       { path: "all-issues", element: <AllIssues /> },
-      {path: "/about",element: <About/>},
+      { path: "/about",element: <About/>},
+      { path: "/contact",element: <Contact/>},
       {
         path: "issue-details/:id",
         element: (

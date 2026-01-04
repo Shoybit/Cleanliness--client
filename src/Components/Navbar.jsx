@@ -64,6 +64,7 @@ const Navbar = () => {
                   <Link to="/" className={`transition ${isActive("/") ? "text-green-600 font-semibold" : "hover:text-green-600 dark:text-white"}`}>Home</Link>
                   <Link to="/all-issues" className={`transition ${isActive("/all-issues") ? "text-green-600 font-semibold" : "text-black hover:text-green-600 dark:text-white"}`}>All Issues</Link>
                   <Link to="/about" className={`transition ${isActive("/about") ? "text-green-600 font-semibold" : "text-black hover:text-green-600 dark:text-white"}`}>About</Link>
+                  <Link to="/contact" className={`transition ${isActive("/contact") ? "text-green-600 font-semibold" : "text-black hover:text-green-600 dark:text-white"}`}>Contact</Link>
                   
                   <Link
                     to="/dashboard"
@@ -132,6 +133,9 @@ const Navbar = () => {
                   <>
                    <Link to="/" className="block px-3 py-2 rounded hover:bg-green-50 dark:text-black" onClick={() => setMenuOpen(false)}>Home</Link>
                    <Link to="/all-issues" className="block px-3 py-2 rounded hover:bg-green-50 dark:text-black" onClick={() => setMenuOpen(false)}>All Issues</Link>
+                  <Link to="/about" className={`transition ${isActive("/about") ? "text-green-600 font-semibold" : "text-black hover:text-green-600 dark:text-white"}`}>About</Link>
+                  <Link to="/contact" className={`transition ${isActive("/contact") ? "text-green-600 font-semibold" : "text-black hover:text-green-600 dark:text-white"}`}>Contact</Link>
+                  
                    <Link
                   to="/dashboard"
                   className="block px-3 py-2 rounded hover:bg-green-50 dark:text-black"
